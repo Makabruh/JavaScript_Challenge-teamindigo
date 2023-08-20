@@ -64,6 +64,46 @@ app.post('/create-profile', function (req, res) {
   });
 });
 
+app.post('/check-profile', function (req, res) {
+  const userPayload = req.body; // Get the payload from the request body
+  const username = userPayload.username;
+  const password = userPayload.password;
+
+  // Connect to the db
+  MongoClient.connect(mongoUrlLocal, mongoClientOptions, function (err, client) {
+    if (err) {
+      console.error("Error connecting to MongoDB:", err);
+      res.status(500).send("Error connecting to the database.");
+      return;
+    }
+
+    const db = client.db(databaseName);
+    const collection = db.collection('users');
+
+    collection.findOne({username: username}, function(err, user){
+      if (err) {
+        console.error("Error finding user:", err);
+        res.status(500).send("Error finding user.");
+        return;
+    }
+
+    //if (!user) {
+    //    res.json({ success: false });
+    //} else {
+        if (user.password === password) {
+            res.json({ success: true, user: user });
+        } else {
+            res.json({ success: false });
+        }
+    //}
+
+    client.close();
+    });
+    
+    
+  });
+});
+
 app.listen(3000, function () {
   console.log("app listening on port 3000!");
 });

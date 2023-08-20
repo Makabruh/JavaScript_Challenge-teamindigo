@@ -142,7 +142,7 @@ function validateForm(myForm) {
     else {
         // if the input doesn't match the email format
         if (checkPassword == false) {
-            passwordMsg.innerText = "Password must contain numbers, capital and lowercase letters";
+            passwordMsg.innerText = "Password must contain numbers, capital and lowercase letters and be at least 4 characters";
             passwordMsg.classList.add('invalid-msg');
             passwordMsg.classList.remove('valid-msg');
             password.style.borderColor = 'rgb(204, 102, 114)';
@@ -167,9 +167,6 @@ function validateForm(myForm) {
 //Database Management
 
     async function createProfileRequest() {
-        //const contEdit = document.getElementById('container-edit');
-        //const cont = document.getElementById('container');
-    
         const payload = {
             firstName: document.getElementById('firstName').value,
             lastName: document.getElementById('lastName').value,
@@ -193,22 +190,13 @@ function validateForm(myForm) {
         document.getElementById('email').textContent = jsonResponse.email;
         document.getElementById('username').textContent = jsonResponse.username;
         document.getElementById('password').textContent = jsonResponse.password;
-    
-        //cont.style.display = 'block';
-        //contEdit.style.display = 'none';
     }
     
     function createProfile() {
-        //const contEdit = document.getElementById('container-edit');
-        //const cont = document.getElementById('container');
-    
         document.getElementById('firstName').value = document.getElementById('firstName').textContent;
         document.getElementById('lastName').value = document.getElementById('lastName').textContent;
         document.getElementById('email').value = document.getElementById('email').textContent;
         document.getElementById('username').value = document.getElementById('username').textContent;
         document.getElementById('password').value = document.getElementById('password').textContent;
-    
-        //cont.style.display = 'none';
-        //contEdit.style.display = 'block';
     }
     
