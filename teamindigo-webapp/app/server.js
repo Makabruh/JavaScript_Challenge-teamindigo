@@ -45,7 +45,10 @@ app.post('/create-profile', function (req, res) {
     // Create a new user document
     const newUser = {
       _id: username, // Using the username as the document _id
-      payload: userPayload // Store the entire payload as part of the document
+      firstName: userPayload.firstName,
+      lastName: userPayload.lastName,
+      email: userPayload.email,
+      password: userPayload.password
     };
 
     // Insert the new user document into the "users" collection
@@ -66,36 +69,44 @@ app.post('/create-profile', function (req, res) {
 
 app.post('/check-profile', function (req, res) {
   const userPayload = req.body; // Get the payload from the request body
-  const username = userPayload.username;
-  const password = userPayload.password;
+  const username = userPayload.username; //Get the username
+  const password = userPayload.password; //Get the password
+  console.log(username)
+  console.log(password)
 
   // Connect to the db
   MongoClient.connect(mongoUrlLocal, mongoClientOptions, function (err, client) {
     if (err) {
+      console.log("Error: Database Connection")
       console.error("Error connecting to MongoDB:", err);
       res.status(500).send("Error connecting to the database.");
       return;
     }
 
     const db = client.db(databaseName);
-    const collection = db.collection('users');
+    const collection = db.collection('users'); //Use the users table
 
-    collection.findOne({username: username}, function(err, user){
+    collection.findOne({_id: username}, function(err, user){  //Find the user in the users table using the username
       if (err) {
+        console.log("Error: Finding User")
         console.error("Error finding user:", err);
         res.status(500).send("Error finding user.");
         return;
+    } else {
+      console.log(user);
     }
 
-    //if (!user) {
-    //    res.json({ success: false });
-    //} else {
+    if (!user) {
+        console.log("User doesn't exist")
+        res.json({ success: false });
+    } else {
         if (user.password === password) {
-            res.json({ success: true, user: user });
+            res.json({ success: true, user: user }); //Return success if the user's entered password matches the password in the database
         } else {
-            res.json({ success: false });
+            console.log("Password doesn't match")
+            res.json({ success: false }); //Return false if not
         }
-    //}
+    }
 
     client.close();
     });
