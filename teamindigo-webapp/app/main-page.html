@@ -3,9 +3,35 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
     <title>Main_Page</title>
   </head>
   <body>
-    <head></head>
+    <header></header>
+    <section>
+      <div id="budget">
+        <p>
+          Montly Budget :£
+          <input type="number" id="montlyBudget" />
+        </p>
+        <p id="currentBudget">Current Budget :£</p>
+      </div>
+    </section>
+    <section>
+      <button id="addExpense" onclick="openPage()">Add Expense</button>
+      <div id="expenseTable">
+        <table>
+          <tr>
+            <th>Expense</th>
+            <th>Category</th>
+            <th>Subcategory</th>
+            <th>Frequency</th>
+            <th>Value</th>
+            <th rowspan="2">Is there a way to pay less?</th>
+          </tr>
+        </table>
+      </div>
+    </section>
+    <script type="text/javascript" src="main-page.js"></script>
   </body>
 </html>
