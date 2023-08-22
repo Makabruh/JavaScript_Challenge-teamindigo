@@ -28,6 +28,9 @@ async function loginProfile() {
         email = jsonResponse.email;
         username = jsonResponse.username;
         password = jsonResponse.password;
+
+        window.location.href = './main-page.html';
+
     } else {
         console.log("Login Failure")
     }

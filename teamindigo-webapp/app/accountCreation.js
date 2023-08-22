@@ -161,6 +161,8 @@ function validateForm(myForm) {
         // as all inputs have been verified now, we are good to go!
         console.log("validated");
         createProfileRequest();
+
+        window.location.href = './index.html';
     }
 }
 
