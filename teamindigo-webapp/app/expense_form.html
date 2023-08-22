@@ -7,137 +7,138 @@
     <title>Adding New Expense</title>
   </head>
   <body>
-    <fieldset>
-      <legend>Adding a new expense:</legend>
-      <!--Name *********************-->
-      <p>
-        <label>
-          Expense Name:
-          <input
-            type="text"
-            id="expensiveName"
-            name="expensiveName"
-            maxlength="25"
-          />
-        </label>
-      </p>
-      <br>
-      <!--Category ******************-->
-      <p>
-        Category:
-        <select id ="category" name="category">
-          <option value="c1">Housing</option>
-          <option value="c2">Transportation</option>
-          <option value="c3">Food</option>
-          <option value="c4">Medical & Healthcare</option>
-          <option value="c5">Debt Payments</option>
-          <option value="c6">Saving, Investing</option>
-          <option value="c7">Personal Spending</option>
-          <option value="c8">Recreation & Entertainment</option>
-          <option value="c9" selected>Other</option>
-        </select>
-      </p>
-      <br>
-      <!--Frequency *********************-->
-      <p>
-        <fieldset>
-          <legend> Expense frequency:</legend>
 
-        <div>
-          <input type="radio" id="frequency" name="frequency" value="f1" checked="checked"/>Only this time<br>
-          <input type="radio" id="frequency" name="frequency" value="f2" />Weekly<br>
-          <input type="radio" id="frequency" name="frequency" value="f3" />Montly<br>
-          <input type="radio" id="frequency" name="frequency" value="f4" />Year<br>
-        </div>
-      </fieldset>
-      </p>
-      <br>
-       <!--Value *********************-->
-       <!-- I used input tpe"number", but feel free to change to text and use Javascript to check if it a number-->
-       <p>
-        Value paid: £
-        <input type="number" id="expValue" name="expValue" step=".01">
-       </p><br>
-
-      <!--Esential *********************-->
-       <p>
-        <fieldset>
-          <legend> From 1-10, how is it essential:</legend>
-        <div class="checkbox-container">
-          <label for ="cb1">1</label>
-          <input class="cb_Imp" type="radio" name="selNumber" id="cb1">
-          <div class="cb_custom"></div>
-        </div>
-
-        <div class="checkbox-container">
-          <label for ="cb2">2</label>
-          <input class="cb_Imp" type="radio" name="selNumber" id="cb2">
+    <form method="POST">
+      <fieldset>
+        <legend>Adding a new expense:</legend>
+        <!--Name *********************-->
+        <p>
+          <label>
+            Expense Name:
+            <input
+              type="text"
+              id="expensiveName"
+              name="expensiveName"
+              maxlength="25"
+            />
+          </label>
+        </p>
+        <br>
+        <!--Category ******************-->
+        <p>
+          Category:
+          <select id ="category" name="category">
+            <option value="c1">Housing</option>
+            <option value="c2">Transportation</option>
+            <option value="c3">Food</option>
+            <option value="c4">Medical & Healthcare</option>
+            <option value="c5">Debt Payments</option>
+            <option value="c6">Saving, Investing</option>
+            <option value="c7">Personal Spending</option>
+            <option value="c8">Recreation & Entertainment</option>
+            <option value="c9" selected>Other</option>
+          </select>
+        </p>
+        <br>
+        <!--Frequency *********************-->
+        <p>
+          <fieldset>
+            <legend> Expense frequency:</legend>
+  
+          <div>
+            <input type="radio" id="frequency" name="frequency" value="f1" checked="checked"/>Only this time<br>
+            <input type="radio" id="frequency" name="frequency" value="f2" />Weekly<br>
+            <input type="radio" id="frequency" name="frequency" value="f3" />Montly<br>
+            <input type="radio" id="frequency" name="frequency" value="f4" />Year<br>
+          </div>
+        </fieldset>
+        </p>
+        <br>
+         <!--Value *********************-->
+         <!-- I used input tpe"number", but feel free to change to text and use Javascript to check if it a number-->
+         <p>
+          Value paid: £
+          <input type="number" id="expValue" name="expValue" step=".01">
+         </p><br>
+  
+        <!--Esential *********************-->
+         <p>
+          <fieldset>
+            <legend> From 1-10, how is it essential:</legend>
+          <div class="checkbox-container">
+            <label for ="cb1">1</label>
+            <input class="cb_Imp" type="radio" name="selNumber" id="cb1">
+            <div class="cb_custom"></div>
+          </div>
+  
+          <div class="checkbox-container">
+            <label for ="cb2">2</label>
+            <input class="cb_Imp" type="radio" name="selNumber" id="cb2">
+            <div class="cb_custom"></div>         
+         </div>
+         
+         <div class="checkbox-container">
+          <label for ="cb3">3</label>
+          <input class="cb_Imp" type="radio" name="selNumber" id="cb3">
           <div class="cb_custom"></div>         
        </div>
-       
+  
        <div class="checkbox-container">
-        <label for ="cb3">3</label>
-        <input class="cb_Imp" type="radio" name="selNumber" id="cb3">
+        <label for ="cb4">4</label>
+        <input class="cb_Imp" type="radio" name="selNumber" id="cb4">
         <div class="cb_custom"></div>         
-     </div>
-
-     <div class="checkbox-container">
-      <label for ="cb4">4</label>
-      <input class="cb_Imp" type="radio" name="selNumber" id="cb4">
-      <div class="cb_custom"></div>         
+        </div>
+  
+        <div class="checkbox-container">
+          <label for ="cb5">5</label>
+          <input class="cb_Imp" type="radio" name="selNumber" id="cb5">
+          <div class="cb_custom"></div>         
       </div>
-
-      <div class="checkbox-container">
-        <label for ="cb5">5</label>
-        <input class="cb_Imp" type="radio" name="selNumber" id="cb5">
-        <div class="cb_custom"></div>         
-    </div>
-      <div class="checkbox-container">
-        <label for ="cb6">6</label>
-        <input class="cb_Imp" type="radio" name="selNumber" id="cb6">
-        <div class="cb_custom"></div>         
-      </div>
-      <div class="checkbox-container">
-        <label for ="cb7">7</label>
-        <input class="cb_Imp" type="radio" name="selNumber" id="cb7">
-        <div class="cb_custom"></div>         
-      </div>
-      <div class="checkbox-container">
-        <label for ="cb8">8</label>
-        <input class="cb_Imp" type="radio" name="selNumber" id="cb8">
-        <div class="cb_custom"></div>         
-      </div>
-      <div class="checkbox-container">
-        <label for ="cb9">9</label>
-        <input class="cb_Imp" type="radio" name="selNumber" id="cb9">
-        <div class="cb_custom"></div>         
-      </div>
-      <div class="checkbox-container">
-        <label for ="cb10">10</label>
-        <input class="cb_Imp" type="radio" name="selNumber" id="cb10">
-        <div class="cb_custom"></div>         
-      </div>
+        <div class="checkbox-container">
+          <label for ="cb6">6</label>
+          <input class="cb_Imp" type="radio" name="selNumber" id="cb6">
+          <div class="cb_custom"></div>         
+        </div>
+        <div class="checkbox-container">
+          <label for ="cb7">7</label>
+          <input class="cb_Imp" type="radio" name="selNumber" id="cb7">
+          <div class="cb_custom"></div>         
+        </div>
+        <div class="checkbox-container">
+          <label for ="cb8">8</label>
+          <input class="cb_Imp" type="radio" name="selNumber" id="cb8">
+          <div class="cb_custom"></div>         
+        </div>
+        <div class="checkbox-container">
+          <label for ="cb9">9</label>
+          <input class="cb_Imp" type="radio" name="selNumber" id="cb9">
+          <div class="cb_custom"></div>         
+        </div>
+        <div class="checkbox-container">
+          <label for ="cb10">10</label>
+          <input class="cb_Imp" type="radio" name="selNumber" id="cb10">
+          <div class="cb_custom"></div>         
+        </div>
+        </fieldset>
+        </p><br>
+  
+        <!--Possibility of Saving Description *****************-->
+        <p>
+         Is there a way to pay less? If yes describe it:
+         <textarea id="savingDesc" name="savingDesc" cols="40" rows="2" maxlength="100"></textarea>
+        </p><br>
+  
+        <!--Value *********************-->
+         <!-- I used input tpe"number", but feel free to change to text and use Javascript to check if it a number-->
+         <p>
+          Value that could be saved: £
+          <input type="number" id="savingValue" name="savingValue" step=".01">
+         </p><br>
+  
+        <!--Submit Button *********************-->
+        <input type="submit" id="submitForm" value ="Add Expense">
       </fieldset>
-      </p><br>
-
-      <!--Possibility of Saving Description *****************-->
-      <p>
-       Is there a way to pay less? If yes describe it:
-       <textarea id="savingDesc" name="savingDesc" cols="40" rows="2" maxlength="100"></textarea>
-      </p><br>
-
-      <!--Value *********************-->
-       <!-- I used input tpe"number", but feel free to change to text and use Javascript to check if it a number-->
-       <p>
-        Value that could be saved: £
-        <input type="number" id="savingValue" name="savingValue" step=".01">
-       </p><br>
-
-      <!--Submit Button *********************-->
-      <input type="submit" id="submitForm" value ="Add Expense">
-    </fieldset>
-
-    <form method="POST"></form>
+    </form>
 
     <script type="text/javascript" src="add-expense.js"></script>
   </body>
