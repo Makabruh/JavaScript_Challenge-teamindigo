@@ -138,3 +138,41 @@ span {
   background-color: rgb(148, 246, 0);
 }
 /*  Essentail -CSS to create horizontal "Checkbox"  - End of CSS*/
+
+/*  Main Page Table CSS*/
+.mainPage {
+  background-color: #b3d7f3;
+  width: auto;
+  height: 100px;
+}
+.section1 {
+  display: flex;
+  justify-content: left;
+}
+.budget {
+  justify-content: left;
+  display: inline-flex;
+}
+
+.btnAddExpense {
+  display: block;
+  margin: 5px;
+}
+
+table {
+  padding: 5px;
+  border: 2px solid #ffffff;
+  border-radius: 10px;
+  background-color: #8cc9ef;
+}
+th {
+  border: 2px solid #b3d7f3;
+  border-radius: 5x;
+  background-color: #5fbbf5;
+}
+td {
+  padding: 5px;
+  border: 1px solid 5fbbf5;
+  border-radius: 5px;
+  background-color: rgb(255, 240, 251);
+}
