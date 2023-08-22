@@ -7,28 +7,57 @@
     <title>Main_Page</title>
   </head>
   <body>
-    <header></header>
-    <section>
-      <div id="budget">
-        <p>
+    <header class="mainPage"></header>
+    <br>
+    <section class="section1">
+      <div class="budget">
+        <div onload="calcBudget()">
           Montly Budget :£
-          <input type="number" id="montlyBudget" />
-        </p>
-        <p id="currentBudget">Current Budget :£</p>
+          <input type="number" id="montlyBudget" value="1500" />
+        </div>
+        <button id="updateBudget" onclick="calcBudget()"> Update </button>
+        <div id="currentBudget">Current Budget :£</b>
+      </div>
+
       </div>
     </section>
     <section>
-      <button id="addExpense" onclick="openPage()">Add Expense</button>
+      <button id="addExpense" class="btnAddExpense" onclick="openPage()">Add Expense</button>
       <div id="expenseTable">
         <table>
           <tr>
-            <th>Expense</th>
-            <th>Category</th>
-            <th>Subcategory</th>
-            <th>Frequency</th>
-            <th>Value</th>
-            <th rowspan="2">Is there a way to pay less?</th>
+            <th rowspan="2">Expense</th>
+            <th rowspan="2">Category</th>
+            <th rowspan="2">Subcategory</th>
+            <th rowspan="2">Frequency</th>
+            <th rowspan="2">Value</th>
+            <th colspan="2">Is there a way to pay less?</th>
+           
           </tr>
+          <tr>
+            <th>If yes how?</th>
+            <th>Saving Value</th>
+          </tr>
+          <!--Info Placeholder -->
+          <tr>
+            <td>Netflix</td>
+            <td>Entertainment</td>
+            <td>Montly</td>
+            <td>15.99</td>
+            <td>5</td>
+            <td>chaging Subscription type</td>
+            <td>5.99</td>
+          </tr>
+          <tr>
+            <td>Rent</td>
+            <td>Housing</td>
+            <td>Montly</td>
+            <td>850.00</td>
+            <td>10</td>
+            <td>No</td>
+            <td>0</td>
+          </tr>
+
         </table>
       </div>
     </section>
