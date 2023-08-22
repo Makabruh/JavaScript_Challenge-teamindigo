@@ -4,6 +4,7 @@ let fs = require('fs');
 let MongoClient = require('mongodb').MongoClient;
 let bodyParser = require('body-parser');
 let app = express();
+let globalUsername = ' ';
 
 app.use(bodyParser.urlencoded({
   extended: true
@@ -102,6 +103,7 @@ app.post('/check-profile', function (req, res) {
     } else {
         if (user.password === password) {
             res.json({ success: true, user: user }); //Return success if the user's entered password matches the password in the database
+            globalUsername = user.username; //Upon login, set the global username to the username
         } else {
             console.log("Password doesn't match")
             res.json({ success: false }); //Return false if not
@@ -112,6 +114,46 @@ app.post('/check-profile', function (req, res) {
     });
     
     
+  });
+});
+
+app.post('/add-expense', function (req, res) {
+  const userPayload = req.body; // Get the payload from the request body
+  const expenseName = userPayload.expenseName;
+
+  // Connect to the db
+  MongoClient.connect(mongoUrlLocal, mongoClientOptions, function (err, client) {
+    if (err) {
+      console.error("Error connecting to MongoDB:", err);
+      res.status(500).send("Error connecting to the database.");
+      return;
+    }
+
+    const db = client.db(databaseName);
+
+    // Create a new user document
+    const newExpense = {
+      expenseName: expenseName,
+      category: userPayload.category,
+      frequency: userPayload.frequency,
+      expValue: userPayload.expValue,
+      savingDesc: userPayload.savingDesc,
+      savingValue: userPayload.savingValue
+    };
+
+    // Insert the new expense document into the collection named the username
+    db.collection(globalUsername).insertOne(newExpense, function (err, result) {
+      if (err) {
+        console.error("Error inserting user into MongoDB:", err);
+        res.status(500).send("Error inserting user into the database.");
+        return;
+      }
+
+      client.close();
+
+      // Send a success response
+      res.status(200).send("Expense created successfully.");
+    });
   });
 });
 
