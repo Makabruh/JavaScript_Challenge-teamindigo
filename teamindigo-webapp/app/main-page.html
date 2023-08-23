@@ -10,13 +10,15 @@
   <body>
     <header class="mainPage"></header>
     <br>
-    <section class="section1">
+
+    <main>
+      <section class="section1">
       <div class="budget">
         <div onload="calcBudget()">
-          Montly Budget :£
+          Monthly Budget: £
           <input type="number" id="montlyBudget" value="1500" />
         </div>
-        <button id="updateBudget" onclick="calcBudget()"> Update </button>
+        <button id="updateBudget" onclick="calcBudget()">Update</button>
         <div id="currentBudget">Current Budget :£</b>
       </div>
 
@@ -62,6 +64,7 @@
         </table>
       </div>
     </section>
+  </main>
     <script type="text/javascript" src="main-page.js"></script>
   </body>
 </html>

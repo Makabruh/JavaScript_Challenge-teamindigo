@@ -6,10 +6,19 @@
 
 body {
   background-color: hsl(360, 88%, 72%);
+  /* background: rgb(209, 9, 213);
+  background: linear-gradient(90deg, rgba(209, 9, 213, 1) 0%, rgba(75, 9, 151, 1) 40%, rgba(9, 9, 121, 1) 64%, rgba(0, 212, 255, 1) 86%); */
+  
   text-align: center;
+  padding: 0;
+  margin: 0;
 }
 
 /* Please note that 1rem = 16px */
+
+main {
+  margin: 20px;
+}
 
 h1 {
   color: #fff;
@@ -52,6 +61,7 @@ label {
 span {
   color: #dc3545;
 }
+
 .input-box {
   border-radius: 0.25rem;
   border: 1px solid #ced4da;
@@ -106,6 +116,7 @@ span {
   margin-right: 25px;
   margin-bottom: 15px;
 }
+
 .checkbox-container label {
   cursor: pointer;
   display: flex;
@@ -114,11 +125,13 @@ span {
   position: absolute;
   z-index: 1;
 }
+
 .cb_Imp {
   cursor: pointer;
   opacity: 0;
   position: absolute;
 }
+
 .cb_custom {
   position: absolute;
   content: "";
@@ -129,14 +142,15 @@ span {
   border-radius: 0.25em;
 }
 
-.checkbox-container .cb_Imp:hover + .cb_custom {
+.checkbox-container .cb_Imp:hover+.cb_custom {
   background-color: rgb(135, 220, 245);
 }
 
-.checkbox-container .cb_Imp:checked + .cb_custom {
+.checkbox-container .cb_Imp:checked+.cb_custom {
   content: "\002714";
   background-color: rgb(148, 246, 0);
 }
+
 /*  Essentail -CSS to create horizontal "Checkbox"  - End of CSS*/
 
 /*  Main Page Table CSS*/
@@ -145,10 +159,12 @@ span {
   width: auto;
   height: 100px;
 }
+
 .section1 {
   display: flex;
   justify-content: left;
 }
+
 .budget {
   justify-content: left;
   display: inline-flex;
@@ -165,14 +181,118 @@ table {
   border-radius: 10px;
   background-color: #8cc9ef;
 }
+
 th {
   border: 2px solid #b3d7f3;
   border-radius: 5x;
   background-color: #5fbbf5;
 }
+
 td {
   padding: 5px;
   border: 1px solid 5fbbf5;
   border-radius: 5px;
   background-color: rgb(255, 240, 251);
+}
+
+
+/* login page styling */
+#login-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+
+}
+
+#login-content {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  width: 100%;
+  height: 100vh;
+}
+
+#column-1 {
+  display: flex;
+  flex: 1;
+  padding: 20px;
+  background-color: #fff;
+  justify-content: center;
+  align-items: center;
+}
+
+#column-2 {
+  flex: .8;
+  display: none;
+  background-color: #f5f5f5;
+  background-image: url('./images/pexels-antoni-shkraba-6207724.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center top;
+
+}
+
+@media (min-width: 768px) {
+
+  /* Show image column on larger screens */
+  #column-2 {
+    display: block;
+  }
+}
+
+/* Your existing login page styling here */
+.login-page-titles {
+  color: orangered;
+}
+
+.login-labels {
+  display: hidden;
+}
+
+#container-edit {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+  gap: 15px;
+}
+
+#input-username,
+#input-password {
+  width: 100%;
+  padding: 0.4em 0.4em 0.4em 1em;
+  border: 1px solid orangered;
+  border-radius: 8px;
+  box-sizing: border-box;
+
+}
+
+#login-button {
+  width: 100%;
+  padding: 0.7em 0.4em;
+  border: none;
+  border-radius: 8px;
+  background-color: orangered;
+  color: white;
+  margin-top: 25px;
+  font-weight: bold;
+  letter-spacing: 2px;
+  cursor: pointer;
+}
+
+#login-button:hover {
+  background-color: rgb(201, 56, 3);
+}
+
+#account-title {
+  margin-bottom: 0 ;
+}
+
+#create-account-button {
+  font-size: 14px;
 }
