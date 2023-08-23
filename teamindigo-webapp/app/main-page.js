@@ -1,28 +1,6 @@
-//last update 23/08/2023 - 9pm
+//last update 23/08/2023 - 10pm
 
-function openPage() {
-  const url = "expense_form.html";
-  window.open(url);
-}
-
-//calc and Display Current Budget test.
-
-function calcBudget() {
-  //Getting the value from montlyBusget input
-  let mBudget = document.getElementById("montlyBudget").value;
-  console.log(mBudget);
-
-  //Getting the SUM from current expenses (replace the value for cBudget)
-  let cBudget = 500;
-
-  let result = mBudget - cBudget;
-
-  document.getElementById("currentBudget").innerHTML =
-    "Current Budget: £ " + result;
-}
-
-//Function to fill the table:
-//Placeholder values for testing
+// Placeholder values for testing
 let tableArray = [
   {
     expenseName: "New shoes",
@@ -40,7 +18,7 @@ let tableArray = [
     subcategory: "Streaming",
     frequency: "Montly",
     expValue: 15.99,
-    essential: 5,
+    essential: 3,
     savingDesc: "chaging Subscription type",
     savingValue: 5.99,
   },
@@ -50,18 +28,56 @@ let tableArray = [
     subcategory: "Renting",
     frequency: "Montly",
     expValue: 850.0,
-    essential: 10,
+    essential: 5,
+    savingDesc: "No",
+    savingValue: 0,
+  },
+  {
+    expenseName: "grosseries",
+    category: "Food",
+    subcategory: "supermarket",
+    frequency: "weekly",
+    expValue: 150,
+    essential: 5,
     savingDesc: "No",
     savingValue: 0,
   },
 ];
 
-function fillTable() {
-  let newTr = document.createElement("tr");
-  console.log(newTr);
+// Browser onloaded will run those functions automatically.
+window.onload = function () {
+  calcBudget();
+  fillTable();
+  sumSavingValue();
+  sumByEssential();
+};
 
+//function to Add Expense Buton
+function openPage() {
+  const url = "expense_form.html";
+  window.open(url);
+}
+
+//calc and Display Current Budget test.
+function calcBudget() {
+  //Getting the value from montlyBusget input
+  let mBudget = document.getElementById("montlyBudget").value;
+  console.log(mBudget);
+
+  //Getting the SUM from current expenses (replace the value for cBudget)
+  let cBudget = sumExpValue();
+
+  let result = mBudget - cBudget;
+
+  document.getElementById("currentBudget").innerHTML =
+    "Current Budget: £ " + result;
+}
+
+// Function to fill the table:
+
+function fillTable() {
   let myTable = document.getElementById("tableExpenses");
-  for (i = 0; i <= tableArray.length; i++) {
+  for (i = 0; i < tableArray.length; i++) {
     myTable.innerHTML +=
       "<tr><td>" +
       tableArray[i].expenseName +
@@ -82,4 +98,48 @@ function fillTable() {
       "</td></tr>";
   }
 }
-fillTable();
+let tableLenght = tableArray.length;
+function sumExpValue() {
+  let x = 0;
+  for (i = 0; i < tableLenght; i++) {
+    x += tableArray[i].expValue;
+  }
+  console.log(x);
+  return x;
+}
+
+function sumSavingValue() {
+  let x = 0;
+  for (i = 0; i < tableLenght; i++) {
+    x += tableArray[i].savingValue;
+  }
+  console.log(x);
+  let savingResult = document.getElementById("resultSaving");
+
+  savingResult.innerHTML = "£" + x;
+}
+
+function sumByEssential() {
+  let resultByGrade = document.getElementById("resultEssential");
+
+  for (j = 1; j <= 10; j++) {
+    let x = 0;
+    console.log("j=" + j);
+    for (i = 0; i < tableLenght; i++) {
+      let essentialGrade = tableArray[i].essential;
+      console.log("essential =" + essentialGrade);
+      console.log("i= " + i);
+      let essentialExp = tableArray[i].expValue;
+      console.log(essentialExp);
+      if (essentialGrade == j) {
+        console.log("true");
+        x += essentialExp;
+        console.log("x=" + x);
+      }
+    }
+    if (x > 0) {
+      resultByGrade.innerHTML +=
+        "Essential value " + j + ", total expense is: £" + x + "<br>";
+    }
+  }
+}
