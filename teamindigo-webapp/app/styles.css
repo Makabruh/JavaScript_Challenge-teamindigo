@@ -176,3 +176,11 @@ td {
   border-radius: 5px;
   background-color: rgb(255, 240, 251);
 }
+
+.section2 {
+  display: flex;
+  border: 2px solid #ffffff;
+  border-radius: 10px;
+  background-color: #8cc9ef;
+  padding: 5px;
+}
