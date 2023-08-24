@@ -143,3 +143,26 @@ function sumByEssential() {
     }
   }
 }
+
+//This function will run first to pull the necessary data from the database
+(async function initPullData() {
+  const initialResponse = await fetch('http://localhost:3000/get-number-of-expenses');
+  const initialData = await initialResponse.json();
+  const numberOfExpenses = initialData.count;
+  console.log("Number of Expenses:", numberOfExpenses);
+  //Use the number of expenses to decide the length of the table
+
+  
+  const expenseResponse = await fetch(`http://localhost:3000/get-profile-data?numberOfExpenses=${numberOfExpenses}`);
+  const expenseData = await expenseResponse.json();
+  const expenses = expenseData.expenses;
+  console.log("Expenses:", expenses);
+  console.log("Expense 1 Name: ", expenses[0]._id);
+  // Populate tableArray with the retrieved expenses
+  //tableArray = expenses;
+
+  
+  
+  
+  
+})();

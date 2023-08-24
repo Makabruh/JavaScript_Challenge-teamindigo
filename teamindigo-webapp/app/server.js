@@ -134,7 +134,7 @@ app.post('/add-expense', function (req, res) {
 
     // Create a new user document
     const newExpense = {
-      expenseName: expenseName,
+      _id: expenseName,
       category: userPayload.category,
       frequency: userPayload.frequency,
       expValue: userPayload.expValue,
@@ -154,6 +154,60 @@ app.post('/add-expense', function (req, res) {
 
       // Send a success response
       res.status(200).send("Expense created successfully.");
+    });
+  });
+});
+
+app.get('/get-number-of-expenses', function (req, res) {
+  let response = {};
+  // Connect to the db
+  MongoClient.connect(mongoUrlLocal, mongoClientOptions, function (err, client) {
+    if (err) throw err;
+
+    let db = client.db(databaseName);
+
+    db.collection(globalUsername).countDocuments({}, function (err, count) {
+      if (err) {
+        console.error("Error counting documents:", err);
+        res.status(500).send("Error counting documents.");
+        return;
+      }
+
+      client.close();
+
+      // Send the count as the response
+      res.status(200).json({ count });
+    });
+    
+  });
+});
+
+//Will maybe need to get a loop running to check the number of entries and transfer them all to main-page.js
+app.get('/get-profile-data', function (req, res) {
+  const numberOfExpenses = parseInt(req.query.numberOfExpenses); // Get the number from the query parameter
+
+  MongoClient.connect(mongoUrlLocal, mongoClientOptions, function (err, client) {
+    if (err) {
+      console.error("Error connecting to MongoDB:", err);
+      res.status(500).send("Error connecting to the database.");
+      return;
+    }
+
+    const db = client.db(databaseName);
+    const collection = db.collection(globalUsername);
+
+    // Find the specified number of documents
+    collection.find().limit(numberOfExpenses).toArray(function (err, expenses) {
+      if (err) {
+        console.error("Error fetching expenses:", err);
+        res.status(500).send("Error fetching expenses.");
+        return;
+      }
+
+      client.close();
+
+      // Send the expenses as the response
+      res.status(200).json({ expenses });
     });
   });
 });
