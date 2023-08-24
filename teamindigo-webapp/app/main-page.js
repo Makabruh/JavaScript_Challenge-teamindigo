@@ -1,10 +1,10 @@
-//last update 23/08/2023 - 10pm
+//last update 24/08/2023 - 9pm
 
 // Placeholder values for testing
 let tableArray = [
   {
     expenseName: "New shoes",
-    category: "Personal",
+    category: "Personal Spending",
     frequency: "Only once",
     expValue: 60.0,
     essential: 2,
@@ -13,7 +13,7 @@ let tableArray = [
   },
   {
     expenseName: "Netflix",
-    category: "Entertainment",
+    category: "Recreation & Entertainment",
     frequency: "Montly",
     expValue: 15.99,
     essential: 3,
@@ -32,12 +32,43 @@ let tableArray = [
   {
     expenseName: "grosseries",
     category: "Food",
-    frequency: "weekly",
+    frequency: "Weekly",
     expValue: 150,
     essential: 5,
     savingDesc: "No",
     savingValue: 0,
   },
+  {
+    expenseName: "jacket",
+    category: "Personal Spending",
+    frequency: "Weekly",
+    expValue: 150,
+    essential: 5,
+    savingDesc: "No",
+    savingValue: 0,
+  },
+  {
+    expenseName: "eletricity",
+    category: "Housing",
+    frequency: "Monthly",
+    expValue: 175,
+    essential: 10,
+    savingDesc: "using during night",
+    savingValue: 30,
+  },
+];
+
+//Array of Categories (will be used for function sumByCategory)
+const categoriesList = [
+  "Housing",
+  "Transportation",
+  "Food",
+  "Medical & Healthcare",
+  "Debt Payments",
+  "Saving, Investing",
+  "Personal Spending",
+  "Recreation & Entertainment",
+  "Other",
 ];
 
 // Browser onloaded will run those functions automatically.
@@ -46,6 +77,7 @@ window.onload = function () {
   fillTable();
   sumSavingValue();
   sumByEssential();
+  sumByCategory();
 };
 
 //function to Add Expense Buton
@@ -59,14 +91,21 @@ function calcBudget() {
   let mBudget = document.getElementById("montlyBudget").value;
   console.log(mBudget);
 
-  let cBudget = sumExpValue();
+  let totalExpenses = sumExpValue();
 
-  let result = mBudget - cBudget;
+  let result = mBudget - totalExpenses;
 
   document.getElementById("currentBudget").innerHTML =
-    "Current Budget: £ " + result;
+    "Current Budget: £ " + result.toFixed(2);
 }
-
+function sumExpValue() {
+  let x = 0;
+  for (i = 0; i < tableLenght; i++) {
+    x += tableArray[i].expValue;
+  }
+  console.log(x);
+  return x;
+}
 // Function to fill the table:
 let tableLenght = tableArray.length;
 
@@ -92,15 +131,7 @@ function fillTable() {
   }
 }
 
-function sumExpValue() {
-  let x = 0;
-  for (i = 0; i < tableLenght; i++) {
-    x += tableArray[i].expValue;
-  }
-  console.log(x);
-  return x;
-}
-
+//show  amount could be saved
 function sumSavingValue() {
   let x = 0;
   for (i = 0; i < tableLenght; i++) {
@@ -112,27 +143,57 @@ function sumSavingValue() {
   savingResult.innerHTML = "£" + x;
 }
 
+// show the values spent by essential
 function sumByEssential() {
   let resultByGrade = document.getElementById("resultEssential");
 
   for (j = 1; j <= 10; j++) {
     let x = 0;
-    console.log("j=" + j);
+    //console.log("j=" + j);
     for (i = 0; i < tableLenght; i++) {
       let essentialGrade = tableArray[i].essential;
-      console.log("essential =" + essentialGrade);
-      console.log("i= " + i);
+      //console.log("essential =" + essentialGrade);
+      //console.log("i= " + i);
       let essentialExp = tableArray[i].expValue;
-      console.log(essentialExp);
+      //console.log(essentialExp);
       if (essentialGrade == j) {
-        console.log("true");
         x += essentialExp;
-        console.log("x=" + x);
+        //console.log("x=" + x);
       }
     }
     if (x > 0) {
       resultByGrade.innerHTML +=
-        "Essential value " + j + ", total expense is: £" + x + "<br>";
+        "Essential value " +
+        "<b>" +
+        j +
+        "</b>" +
+        ", total expense is: £" +
+        x +
+        "<br>";
+    }
+  }
+}
+
+function sumByCategory() {
+  for (let j in categoriesList) {
+    let y = categoriesList[j];
+    let x = 0;
+    //console.log("j is " + y);
+
+    for (i = 0; i < tableLenght; i++) {
+      let currentCategory = tableArray[i].category;
+      //console.log("i = " + currentCategory);
+
+      let categoryValue = tableArray[i].expValue;
+
+      if (y == currentCategory) {
+        //console.log("match " + y);
+        x += categoryValue;
+      }
+    }
+    if (x > 0) {
+      reesultCategory.innerHTML +=
+        "The total expense for " + "<b>" + y + "</b>" + " is: £" + x + "<br>";
     }
   }
 }
