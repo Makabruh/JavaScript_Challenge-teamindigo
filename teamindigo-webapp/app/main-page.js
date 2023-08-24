@@ -5,7 +5,6 @@ let tableArray = [
   {
     expenseName: "New shoes",
     category: "Personal",
-    subcategory: "clothes",
     frequency: "Only once",
     expValue: 60.0,
     essential: 2,
@@ -15,7 +14,6 @@ let tableArray = [
   {
     expenseName: "Netflix",
     category: "Entertainment",
-    subcategory: "Streaming",
     frequency: "Montly",
     expValue: 15.99,
     essential: 3,
@@ -25,7 +23,6 @@ let tableArray = [
   {
     expenseName: "Rent",
     category: "Housing",
-    subcategory: "Renting",
     frequency: "Montly",
     expValue: 850.0,
     essential: 5,
@@ -35,7 +32,6 @@ let tableArray = [
   {
     expenseName: "grosseries",
     category: "Food",
-    subcategory: "supermarket",
     frequency: "weekly",
     expValue: 150,
     essential: 5,
@@ -60,11 +56,9 @@ function openPage() {
 
 //calc and Display Current Budget test.
 function calcBudget() {
-  //Getting the value from montlyBusget input
   let mBudget = document.getElementById("montlyBudget").value;
   console.log(mBudget);
 
-  //Getting the SUM from current expenses (replace the value for cBudget)
   let cBudget = sumExpValue();
 
   let result = mBudget - cBudget;
@@ -74,17 +68,16 @@ function calcBudget() {
 }
 
 // Function to fill the table:
+let tableLenght = tableArray.length;
 
 function fillTable() {
   let myTable = document.getElementById("tableExpenses");
-  for (i = 0; i < tableArray.length; i++) {
+  for (i = 0; i < tableLenght; i++) {
     myTable.innerHTML +=
       "<tr><td>" +
       tableArray[i].expenseName +
       "</td><td>" +
       tableArray[i].category +
-      "</td><td>" +
-      tableArray[i].subcategory +
       "</td><td>" +
       tableArray[i].frequency +
       "</td><td>" +
@@ -98,7 +91,7 @@ function fillTable() {
       "</td></tr>";
   }
 }
-let tableLenght = tableArray.length;
+
 function sumExpValue() {
   let x = 0;
   for (i = 0; i < tableLenght; i++) {
