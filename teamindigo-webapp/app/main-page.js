@@ -158,6 +158,9 @@ function sumByEssential() {
   const expenses = expenseData.expenses;
   console.log("Expenses:", expenses);
   console.log("Expense 1 Name: ", expenses[0]._id);
+
+  
+
   // Populate tableArray with the retrieved expenses
   //tableArray = expenses;
 
