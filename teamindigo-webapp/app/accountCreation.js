@@ -194,6 +194,8 @@ async function createProfileRequest() {
   document.getElementById("password").textContent = jsonResponse.password;
 }
 
+
+//Might not actually need this function
 function createProfile() {
   document.getElementById("firstName").value =
     document.getElementById("firstName").textContent;

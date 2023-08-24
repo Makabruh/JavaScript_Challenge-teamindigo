@@ -103,7 +103,8 @@ app.post('/check-profile', function (req, res) {
     } else {
         if (user.password === password) {
             res.json({ success: true, user: user }); //Return success if the user's entered password matches the password in the database
-            globalUsername = user.username; //Upon login, set the global username to the username
+            globalUsername = user._id; //Upon login, set the global username to the username
+            console.log(globalUsername);
         } else {
             console.log("Password doesn't match")
             res.json({ success: false }); //Return false if not

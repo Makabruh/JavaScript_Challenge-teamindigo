@@ -35,7 +35,9 @@ async function createExpenseRequest() {
     document.getElementById('savingValue').textContent = jsonResponse.savingValue;
 }
 
-function createProfile() {
+
+//Might not need this function
+function createExpense() {
     document.getElementById('expenseName').value = document.getElementById('expenseName').textContent;
     document.getElementById('category').value = document.getElementById('category').textContent;
     document.getElementById('frequency').value = document.getElementById('frequency').textContent;

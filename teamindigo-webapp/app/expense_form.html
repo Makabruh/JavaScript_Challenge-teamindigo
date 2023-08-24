@@ -9,7 +9,7 @@
   <body>
 
 
-    <form method="POST">
+    <form id="expense-form" action="" method="GET" onsubmit="return false">
       <fieldset>
         <legend>Adding a new expense:</legend>
         <!--Name *********************-->
@@ -137,7 +137,7 @@
          </p><br>
   
         <!--Submit Button *********************-->
-        <input type="submit" id="submitForm" value ="Add Expense">
+        <button type="submit" onclick="createExpenseRequest(this.form)" id="submitForm">Add Expense</button>
       </fieldset>
     </form>
 
