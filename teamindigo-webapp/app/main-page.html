@@ -10,15 +10,16 @@
   <body>
     <header class="mainPage"></header>
     <br>
-
-    <main>
-      <section class="section1">
+    <section class="section1">
+      <!-- This will not stay, it is just for testing purposes -->
+      <h1 id="testing-database">TESTING</h1>
+      
       <div class="budget">
-        <div onload="calcBudget()">
-          Monthly Budget: £
-          <input type="number" id="montlyBudget" value="1500" />
+        <div>
+          Montly Budget :£
+          <input type="number" id="montlyBudget" value="1500" onchange="calcBudget()" />
         </div>
-        <button id="updateBudget" onclick="calcBudget()">Update</button>
+
         <div id="currentBudget">Current Budget :£</b>
       </div>
 
@@ -27,13 +28,13 @@
     <section>
       <button id="addExpense" class="btnAddExpense" onclick="openPage()">Add Expense</button>
       <div id="expenseTable">
-        <table>
+        <table id="tableExpenses">
           <tr>
             <th rowspan="2">Expense</th>
             <th rowspan="2">Category</th>
-            <th rowspan="2">Subcategory</th>
             <th rowspan="2">Frequency</th>
-            <th rowspan="2">Value</th>
+            <th rowspan="2">Value in £</th>
+            <th rowspan="2">How it is essential?(1-10)</th>
             <th colspan="2">Is there a way to pay less?</th>
            
           </tr>
@@ -41,30 +42,58 @@
             <th>If yes how?</th>
             <th>Saving Value</th>
           </tr>
-          <!--Info Placeholder -->
-          <tr>
-            <td>Netflix</td>
-            <td>Entertainment</td>
-            <td>Montly</td>
-            <td>15.99</td>
-            <td>5</td>
-            <td>chaging Subscription type</td>
-            <td>5.99</td>
-          </tr>
-          <tr>
-            <td>Rent</td>
-            <td>Housing</td>
-            <td>Montly</td>
-            <td>850.00</td>
-            <td>10</td>
-            <td>No</td>
-            <td>0</td>
-          </tr>
+          <!--Table Content is filled by Javascript, main-page.js-->
 
         </table>
       </div>
     </section>
-  </main>
+    <br>
+    <section class="section2">
+      <div id="section2Info">
+
+        <div id="showCategory">
+          <h3>Follow the amount spent this month by category:</h3>
+          <div id="reesultCategory"></div>
+        </div>
+
+        <br>
+        <div id="showEssential">
+         <h3>Follow the amount spent this month by Essential grade:</h3>
+          <div id="resultEssential"></div>
+        </div>
+        <br>
+        <div id="showSaving">
+          <h3>Follow the amount could be saved this month:</h3>
+          <div id="resultSaving"></div>
+        </div>
+      </div>
+
+
+    </section>
+    <br>
+    <section class="section2">
+      <div id="section2Info">
+
+        <div id="showCategory">
+          <h3>Follow the amount spent this month by category:</h3>
+          <div id="reesultCategory"></div>
+        </div>
+
+        <br>
+        <div id="showEssential">
+         <h3>Follow the amount spent this month by Essential grade:</h3>
+          <div id="resultEssential"></div>
+        </div>
+        <br>
+        <div id="showSaving">
+          <h3>Follow the amount could be saved this month:</h3>
+          <div id="resultSaving"></div>
+        </div>
+      </div>
+
+
+    </section>
+  
     <script type="text/javascript" src="main-page.js"></script>
   </body>
 </html>

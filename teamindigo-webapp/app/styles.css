@@ -195,6 +195,22 @@ td {
   background-color: rgb(255, 240, 251);
 }
 
+.section2 {
+  display: flex;
+  border: 2px solid #ffffff;
+  border-radius: 10px;
+  background-color: #8cc9ef;
+  padding: 5px;
+}
+
+.section2 {
+  display: flex;
+  border: 2px solid #ffffff;
+  border-radius: 10px;
+  background-color: #8cc9ef;
+  padding: 5px;
+}
+
 
 /* login page styling */
 #login-container {

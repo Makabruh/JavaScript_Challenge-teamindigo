@@ -9,7 +9,7 @@
   <body>
 
 
-    <form method="POST">
+    <form id="expense-form" action="" method="GET" onsubmit="return false">
       <fieldset>
         <legend>Adding a new expense:</legend>
         <!--Name *********************-->
@@ -68,56 +68,56 @@
             <legend> From 1-10, how is it essential:</legend>
           <div class="checkbox-container">
             <label for ="cb1">1</label>
-            <input class="cb_Imp" type="radio" name="selNumber" id="cb1">
+            <input class="cb_Imp" type="radio" name="selNumber" id="cb1" value="1">
             <div class="cb_custom"></div>
           </div>
   
           <div class="checkbox-container">
             <label for ="cb2">2</label>
-            <input class="cb_Imp" type="radio" name="selNumber" id="cb2">
+            <input class="cb_Imp" type="radio" name="selNumber" id="cb2" value="2">
             <div class="cb_custom"></div>         
          </div>
          
          <div class="checkbox-container">
           <label for ="cb3">3</label>
-          <input class="cb_Imp" type="radio" name="selNumber" id="cb3">
+          <input class="cb_Imp" type="radio" name="selNumber" id="cb3" value="3">
           <div class="cb_custom"></div>         
        </div>
   
        <div class="checkbox-container">
         <label for ="cb4">4</label>
-        <input class="cb_Imp" type="radio" name="selNumber" id="cb4">
+        <input class="cb_Imp" type="radio" name="selNumber" id="cb4" value="4">
         <div class="cb_custom"></div>         
         </div>
   
         <div class="checkbox-container">
           <label for ="cb5">5</label>
-          <input class="cb_Imp" type="radio" name="selNumber" id="cb5">
+          <input class="cb_Imp" type="radio" name="selNumber" id="cb5" value="5">
           <div class="cb_custom"></div>         
       </div>
         <div class="checkbox-container">
           <label for ="cb6">6</label>
-          <input class="cb_Imp" type="radio" name="selNumber" id="cb6">
+          <input class="cb_Imp" type="radio" name="selNumber" id="cb6" value="6">
           <div class="cb_custom"></div>         
         </div>
         <div class="checkbox-container">
           <label for ="cb7">7</label>
-          <input class="cb_Imp" type="radio" name="selNumber" id="cb7">
+          <input class="cb_Imp" type="radio" name="selNumber" id="cb7" value="7">
           <div class="cb_custom"></div>         
         </div>
         <div class="checkbox-container">
           <label for ="cb8">8</label>
-          <input class="cb_Imp" type="radio" name="selNumber" id="cb8">
+          <input class="cb_Imp" type="radio" name="selNumber" id="cb8" value="8">
           <div class="cb_custom"></div>         
         </div>
         <div class="checkbox-container">
           <label for ="cb9">9</label>
-          <input class="cb_Imp" type="radio" name="selNumber" id="cb9">
+          <input class="cb_Imp" type="radio" name="selNumber" id="cb9" value="9">
           <div class="cb_custom"></div>         
         </div>
         <div class="checkbox-container">
           <label for ="cb10">10</label>
-          <input class="cb_Imp" type="radio" name="selNumber" id="cb10">
+          <input class="cb_Imp" type="radio" name="selNumber" id="cb10" value="10">
           <div class="cb_custom"></div>         
         </div>
         </fieldset>
@@ -137,7 +137,7 @@
          </p><br>
   
         <!--Submit Button *********************-->
-        <input type="submit" id="submitForm" value ="Add Expense">
+        <button type="submit" onclick="createExpenseRequest(this.form)" id="submitForm">Add Expense</button>
       </fieldset>
     </form>
 
