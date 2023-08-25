@@ -1,59 +1,109 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Account Creation</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    <h1>Create Your Account Here</h1>
-        <form id="form" action="" method="GET" onsubmit="return false">
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="login-page">
+
+    <div id="login-container">
+      <div id="login-content">
+        <div id="column-1">
+          <form id="form" action="" method="GET" onsubmit="return false">
+            <h1 class="create-acc-title">Create Your Account</h1>
             <div>
-                <label for="firstName">First Name: </label>
-                <br>
-                <input required id="firstName" class="input-box" name="firstname" type="text" placeholder="e.g. Jane">
-                <p id="firstNameValidationMsg"></p>
+              <label for="firstName">First Name: </label>
+              <br />
+              <input
+                required
+                id="firstName"
+                class="input-box"
+                name="firstname"
+                type="text"
+                placeholder="e.g. Jane"
+              />
+              <p id="firstNameValidationMsg"></p>
             </div>
             <div>
-                <label for="lastName">Last Name: </label>
-                <br>
-                <input required id="lastName" class="input-box" name="lastname" type="text" placeholder="e.g. Doe">
-                <p id="lastNameValidationMsg"></p>
+              <label for="lastName">Last Name: </label>
+              <br />
+              <input
+                required
+                id="lastName"
+                class="input-box"
+                name="lastname"
+                type="text"
+                placeholder="e.g. Doe"
+              />
+              <p id="lastNameValidationMsg"></p>
             </div>
             <div>
-                <label for="email">Email: </label>
-                <br>
-                <input required id="email" class="input-box" name="email" type="email" placeholder="e.g. janedoe@example.com">
-                <p id="emailValidationMsg"></p>
+              <label for="email">Email: </label>
+              <br />
+              <input
+                required
+                id="email"
+                class="input-box"
+                name="email"
+                type="email"
+                placeholder="e.g. janedoe@example.com"
+              />
+              <p id="emailValidationMsg"></p>
             </div>
             <div>
-                <label for="username">Username: </label>
-                <br>
-                <input required id="username" class="input-box" name="username" type="text" placeholder="e.g. jd99">
-                <p id="usernameValidationMsg"></p>
+              <label for="username">Username: </label>
+              <br />
+              <input
+                required
+                id="username"
+                class="input-box"
+                name="username"
+                type="text"
+                placeholder="e.g. jd99"
+              />
+              <p id="usernameValidationMsg"></p>
             </div>
             <div>
-                <label for="password">Password: </label>
-                <br>
-                <input required id="password" class="input-box" name="password" type="password" placeholder="Please include a number and capital letter">
-                <p id="passwordValidationMsg"></p>
+              <label for="password">Password: </label>
+              <br />
+              <input
+                required
+                id="password"
+                class="input-box"
+                name="password"
+                type="password"
+                placeholder="Please include a number and capital letter"
+              />
+              <p id="passwordValidationMsg"></p>
             </div>
             <div>
-                <label for="comingFrom">Where did you hear about us?</label>
-                <select class="input-box" name="comingFrom" id="comingFrom">
-                    <option value="not given">---</option>
-                    <option value="Google">Google</option>
-                    <option value="WordofMouth">Word of Mouth</option>
-                </select>
+              <label for="comingFrom">Where did you hear about us?</label>
+              <select class="input-box" name="comingFrom" id="comingFrom">
+                <option value="not given">---</option>
+                <option value="Google">Google</option>
+                <option value="WordofMouth">Word of Mouth</option>
+              </select>
             </div>
-            
-            <button type="submit" onclick="validateForm(this.form)" id="submitBtn">Submit</button>
-    
-        </form>
-</body>
-<footer>
+
+            <button
+              type="submit"
+              onclick="validateForm(this.form)"
+              id="submitBtn"
+            >
+              Submit
+            </button>
+          </form>
+        </div>
+        <div id="column-2"></div>
+      </div>
+    </div>
+    </div>
+  </body>
+  <footer>
     <script src="accountCreation.js"></script>
-</footer>
+  </footer>
 </html>
