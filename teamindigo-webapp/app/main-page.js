@@ -25,38 +25,11 @@ let tableArray = [];
     //This is fine, just a string
     expenseObj.expenseName = expenses[i]._id;
 
-    //This needs to take the category (eg. c8) and convert it
-    //PROBLEM HERE
-    if(expenses[i].category == 'c1')
-      expenseObj.category = 'Housing';
-    else if (expenses[i].category == 'c2')
-      expenseObj.category = 'Transportation';
-    else if (expenses[i].category == 'c3')
-      expenseObj.category = 'Food';
-    else if (expenses[i].category == 'c4')
-      expenseObj.category = 'Medical & Healthcare';
-    else if (expenses[i].category == 'c5')
-      expenseObj.category = 'Debt Payments';
-    else if (expenses[i].category == 'c6')
-      expenseObj.category = 'Saving & Investing';
-    else if (expenses[i].category == 'c7')
-      expenseObj.category = 'Personal Spending';
-      else if (expenses[i].category == 'c8')
-      expenseObj.category = 'Recreation & Entertainment';
-    else if (expenses[i].category == 'c9')
-      expenseObj.category = 'Other';
-
-
-    //Same as above
-    //PROBLEM HERE?
-    if(expenses[i].frequency == 'f1')
-      expenseObj.frequency = 'Only This Time';
-    else if (expenses[i].frequency == 'f2')
-      expenseObj.frequency = 'Weekly';
-    else if (expenses[i].frequency == 'f3')
-      expenseObj.frequency = 'Monthly';
-    else if (expenses[i].frequency == 'f4')
-      expenseObj.frequency = 'Annually';
+    //This is fine, just a string
+    expenseObj.category = expenses[i].category;
+    
+    //This is fine, just a string
+    expenseObj.frequency = expenses[i].frequency
     
     //Convert to decimal
     expenseObj.expValue = parseFloat(expenses[i].expValue);
