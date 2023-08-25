@@ -64,10 +64,29 @@ span {
   color: #dc3545;
 }
 
-
+.br {
+  display: block;
+  margin-bottom: 1.5em;
+}
 
 /* Expense Form CSS*/
 /*  Essentail -CSS to create horizontal "Checkbox" - Start CSS*/
+
+.expense-form-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.expense-form {
+  display: flex;
+  row-gap: 20px;
+}
+
+legend {
+  font-weight: bold;
+}
 
 .checkbox-container {
   box-sizing: border-box;
@@ -83,6 +102,7 @@ span {
   width: 1em;
   justify-content: center;
   position: absolute;
+  margin-left: 3.5px;
   z-index: 1;
 }
 
@@ -102,7 +122,7 @@ span {
   border-radius: 0.25em;
 }
 
-.checkbox-container .cb_Imp:hover+.cb_custom {
+.checkbox-container .cb_Imp:hover +.cb_custom {
   background-color: rgb(135, 220, 245);
 }
 
@@ -114,10 +134,23 @@ span {
 /*  Essentail -CSS to create horizontal "Checkbox"  - End of CSS*/
 
 /*  Main Page Table CSS*/
-.mainPage {
+
+#main-page {
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+}
+.mainPage-title {
   background-color: #b3d7f3;
   width: auto;
   height: 100px;
+}
+
+#montlyBudget {
+  margin-right: 15px;
 }
 
 .section1 {
@@ -136,34 +169,107 @@ span {
 }
 
 table {
-  padding: 5px;
-  border: 2px solid #ffffff;
+  padding: 10px;
+  border: 1px solid #ffffff;
   border-radius: 10px;
-  background-color: #8cc9ef;
+  background-color: #EAEAEA;
+  width: 100%;
 }
 
 th {
-  border: 2px solid #b3d7f3;
-  border-radius: 5x;
-  background-color: #5fbbf5;
+  border: 2px solid orangered;
+  color: white;
+  border-radius: 5px;
+  background-color: orangered;
+  padding: 0 10px;
 }
 
 td {
   padding: 5px;
-  border: 1px solid 5fbbf5;
+  border: 1px solid orangered;
   border-radius: 5px;
-  background-color: rgb(255, 240, 251);
+  background-color: #fff;
 }
 
 .section2 {
+  margin-bottom: 50px;
+}
+
+#addExpense, #submitForm {
+  border: 2px solid orangered;
+  border-radius: 5px;
+  padding: 1em;
+  margin: 20px 0;
+  background-color: white;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+#addExpense:hover, #submitForm:hover {
+  background-color: orangered;
+  color: white;
+
+}
+
+.button-centered {
   display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#section2Info {
+  display: flex;
+  flex-wrap: wrap; /* Allow flex items to wrap to the next line */
+  justify-content: center;
+  width: 100%;
+  /* justify-content: center;
   border: 2px solid #ffffff;
   border-radius: 10px;
   background-color: #8cc9ef;
-  padding: 5px;
+  padding: 1.5em; */
 }
 
+.card {
+  border: 2px solid orangered;
+  border-radius: 10px;
+  padding: 2em;
+  margin: 0.5em;
+  background-color: #fff;
+  max-width: 100%;
+}
 
+.card-titles {
+  margin-top: 0;
+}
+
+@media (max-width: 1167px) {
+  #section2Info {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .card {
+    width: 500px;
+  }
+}
+
+#resultSaving {
+  font-weight: bolder;
+  font-size: 25px
+}
+
+/* @media screen and (max-width: 650px) {
+  table {width:100%;}
+  thead {display: none;}
+  tr:nth-of-type(2n) {background-color: inherit;}
+  tr td:first-child {background: #f0f0f0; font-weight:bold;font-size:1.3em;}
+  tbody td {display: block;  text-align:center;}
+  tbody td:before { 
+      content: attr(data-th); 
+      display: block;
+      text-align:center;  
+    }
+  } */
 
 /* login page styling */
 
