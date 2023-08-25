@@ -62,15 +62,13 @@ let tableArray = [];
     expenseObj.expValue = parseFloat(expenses[i].expValue);
     //Figure out input value
     //PROBLEM HERE
-    expenseObj.essential = 5;
+    expenseObj.essential = parseInt(expenses[i].selectedEssentialValue);
     //This is fine
     expenseObj.savingDesc = expenses[i].savingDesc;
     //Convert to decimal
     expenseObj.savingValue = parseFloat(expenses[i].savingValue);
 
     tableArray.push(expenseObj);
-    
-    //NOT FILLING TABLE?
 
   }
 
