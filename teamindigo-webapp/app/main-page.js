@@ -2,6 +2,7 @@
 
 // Placeholder values for testing
 let tableArray = [];
+let tableLength;
 
 //This function should run first to pull the necessary data from the database
 (async function initPullData() {
@@ -48,7 +49,9 @@ let tableArray = [];
   
   console.log(tableArray);
   
+  tableLength = tableArray.length;
   fillTable();
+  
   prepPage();
 
 })();
@@ -94,6 +97,8 @@ function calcBudget() {
   document.getElementById("currentBudget").innerHTML =
     "Current Budget: £ " + result.toFixed(2);
 }
+
+
 function sumExpValue() {
   let x = 0;
   for (i = 0; i < tableLength; i++) {
@@ -106,7 +111,7 @@ function sumExpValue() {
 
 function fillTable() {
   // Function to fill the table:
-  let tableLength = tableArray.length;
+  
   let myTable = document.getElementById("tableExpenses");
   for (i = 0; i < tableLength; i++) {
     myTable.innerHTML +=
