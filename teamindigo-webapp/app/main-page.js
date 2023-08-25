@@ -78,6 +78,7 @@ let tableArray = [];
   console.log(tableArray);
   
   fillTable();
+  prepPage();
 
 })();
 
@@ -95,7 +96,8 @@ const categoriesList = [
 ];
 
 // Browser onloaded will run those functions automatically.
-window.onload = function () {
+//window.onload = function ()
+function prepPage() {
   calcBudget();
   //fillTable();
   sumSavingValue();
