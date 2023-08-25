@@ -8,17 +8,18 @@
     <title>Main_Page</title>
   </head>
   <body>
-    <header class="mainPage"></header>
+    <header class="mainPage-title"></header>
+    <div id="main-page">
     <br>
     <section class="section1">
       
       <div class="budget">
         <div>
-          Montly Budget :£
+          Monthly Budget: £
           <input type="number" id="montlyBudget" value="1500" onchange="calcBudget()" />
         </div>
 
-        <div id="currentBudget">Current Budget :£</b>
+        <div id="currentBudget">Current Budget: £</b>
       </div>
 
       </div>
@@ -49,25 +50,24 @@
     <section class="section2">
       <div id="section2Info">
 
-        <div id="showCategory">
-          <h3>Follow the amount spent this month by category:</h3>
+        <div id="showCategory" class="card">
+          <h3 class="card-titles">Follow the amount spent this month by category:</h3>
           <div id="reesultCategory"></div>
         </div>
 
-        <br>
-        <div id="showEssential">
-         <h3>Follow the amount spent this month by Essential grade:</h3>
+        <div id="showEssential" class="card">
+         <h3 class="card-titles">Follow the amount spent this month by Essential grade:</h3>
           <div id="resultEssential"></div>
         </div>
-        <br>
-        <div id="showSaving">
-          <h3>Follow the amount could be saved this month:</h3>
+
+        <div id="showSaving" class="card">
+          <h3 class="card-titles">Follow the amount could be saved this month:</h3>
           <div id="resultSaving"></div>
         </div>
       </div>
     </section>
-    <br>
-    
+
+  </div>
   
     <script type="text/javascript" src="main-page.js"></script>
   </body>

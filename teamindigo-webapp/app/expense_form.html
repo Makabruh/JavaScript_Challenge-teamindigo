@@ -8,8 +8,9 @@
   </head>
   <body>
 
+    <div class="expense-form-page">
 
-    <form id="expense-form" action="" method="GET" onsubmit="return false">
+    <form class="expense-form" id="expense-form" action="" method="GET" onsubmit="return false">
       <fieldset>
         <legend>Adding a new expense:</legend>
         <!--Name *********************-->
@@ -24,9 +25,10 @@
             />
           </label>
         </p>
-        <br>
+        <span class="br"></span>
+      
         <!--Category ******************-->
-        <p>
+        <div class="category">
           Category:
           <select id ="category" name="category">
             <option value="c1">Housing</option>
@@ -39,8 +41,9 @@
             <option value="c8">Recreation & Entertainment</option>
             <option value="c9" selected>Other</option>
           </select>
-        </p>
-        <br>
+        </div>
+        <span class="br"></span>
+      
         <!--Frequency *********************-->
         <p>
           <fieldset>
@@ -54,13 +57,16 @@
           </div>
         </fieldset>
         </p>
-        <br>
+        <span class="br"></span>
+
+        
          <!--Value *********************-->
          <!-- I used input tpe"number", but feel free to change to text and use Javascript to check if it a number-->
          <p>
           Value paid: £
           <input type="number" id="expValue" name="expValue" step=".01">
-         </p><br>
+         </p>
+         <span class="br"></span>
   
         <!--Esential *********************-->
          <p>
@@ -121,26 +127,28 @@
           <div class="cb_custom"></div>         
         </div>
         </fieldset>
-        </p><br>
+        </p>
+        <span class="br"></span>
   
         <!--Possibility of Saving Description *****************-->
         <p>
-         Is there a way to pay less? If yes describe it:
-         <textarea id="savingDesc" name="savingDesc" cols="40" rows="2" maxlength="100"></textarea>
-        </p><br>
+         Is there a way to pay less? If yes describe it:</p>
+         <textarea id="savingDesc" name="savingDesc" cols="70" rows="3" maxlength="100"></textarea>
+         <span class="br"></span>
+
   
         <!--Value *********************-->
          <!-- I used input tpe"number", but feel free to change to text and use Javascript to check if it a number-->
          <p>
           Value that could be saved: £
           <input type="number" id="savingValue" name="savingValue" step=".01">
-         </p><br>
+         </p>
   
         <!--Submit Button *********************-->
-        <button type="submit" onclick="createExpenseRequest(this.form)" id="submitForm">Add Expense</button>
+        <div class="button-centered"><button type="submit" onclick="createExpenseRequest(this.form)" id="submitForm">Add Expense</button></div>
       </fieldset>
     </form>
-
+  </div>
     <script type="text/javascript" src="add-expense.js"></script>
   </body>
 </html>
