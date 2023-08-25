@@ -54,6 +54,12 @@ let tableLength;
   
   prepPage();
 
+
+  const getNameResponse = await fetch('http://localhost:3000/get-user-name');
+  const userData = await getNameResponse.json();
+  const userFirstName = userData.firstName;
+  document.getElementById('fillName').textContent = userFirstName ? userFirstName : 'PLACEHOLDER';
+
 })();
 
 //Array of Categories (will be used for function sumByCategory)

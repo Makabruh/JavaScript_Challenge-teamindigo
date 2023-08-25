@@ -213,6 +213,27 @@ app.get('/get-profile-data', function (req, res) {
   });
 });
 
+app.get('/get-user-name', function (req, res) {
+
+  let response = {};
+  MongoClient.connect(mongoUrlLocal, mongoClientOptions, function (err, client) {
+    if (err) throw err;
+
+    let db = client.db(databaseName);
+
+    let myquery = { _id: globalUsername };
+
+    db.collection("users").findOne(myquery, function (err, result) {
+      if (err) throw err;
+      response = result;
+      client.close();
+
+      // Send response
+      res.send(response ? response : {});
+    });
+  });
+});
+
 app.listen(3000, function () {
   console.log("app listening on port 3000!");
 });
