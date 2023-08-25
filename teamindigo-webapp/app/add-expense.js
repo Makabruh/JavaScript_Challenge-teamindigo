@@ -3,6 +3,20 @@ const expenseName = document.getElementById('expensiveName');
 const category = document.getElementById('category');
 const frequency = document.getElementById('frequency');
 const expValue = document.getElementById('expValue');
+
+//?
+//const selectedEssentialValue = document.querySelector('input[name="selNumber"]:checked').value;
+/*
+const selectedEssentialElement = document.querySelector('input[name="selNumber"]:checked');
+if (selectedEssentialElement) {
+  const selectedEssentialValue = selectedEssentialElement.value;
+  console.log("checkbox: " + selectedEssentialValue);
+} else {
+  console.log("No checkbox selected");
+}
+console.log("checkbox: " + selectedEssentialValue);
+*/
+
 //missing here
 const savingDesc = document.getElementById('savingDesc');
 const savingValue = document.getElementById('savingValue');
