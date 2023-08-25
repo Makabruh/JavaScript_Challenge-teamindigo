@@ -1,8 +1,8 @@
 //Get elements
-const expenseName = document.getElementById('expensiveName');
-const category = document.getElementById('category');
-const frequency = document.getElementById('frequency');
-const expValue = document.getElementById('expValue');
+const expenseName = document.getElementById("expensiveName");
+const category = document.getElementById("category");
+const frequency = document.getElementById("frequency");
+const expValue = document.getElementById("expValue");
 
 //?
 const selectedEssentialValue = document.querySelector('input[name="selNumber"]:checked').value;
@@ -18,8 +18,8 @@ console.log("checkbox: " + selectedEssentialValue);
 */
 
 //missing here
-const savingDesc = document.getElementById('savingDesc');
-const savingValue = document.getElementById('savingValue');
+const savingDesc = document.getElementById("savingDesc");
+const savingValue = document.getElementById("savingValue");
 //Need to somehow get the username and pass it into the payload to be used to select the correct collection
 
 async function createExpenseRequest() {
@@ -52,13 +52,13 @@ async function createExpenseRequest() {
     document.getElementById('savingValue').textContent = jsonResponse.savingValue;
 }
 
-
 //Might not need this function - same here
 function createExpense() {
     document.getElementById('expenseName').value = document.getElementById('expenseName').textContent;
     document.getElementById('category').value = document.getElementById('category').textContent;
     document.getElementById('frequency').value = document.getElementById('frequency').textContent;
     document.getElementById('expValue').value = document.getElementById('expValue').textContent;
+    //missing here
     document.getElementById('savingDesc').value = document.getElementById('savingDesc').textContent;
     document.getElementById('savingValue').value = document.getElementById('savingValue').textContent;
 }

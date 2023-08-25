@@ -50,10 +50,10 @@
             <legend> Expense frequency:</legend>
   
           <div>
-            <input type="radio" id="frequency" name="frequency" value="f1" checked="checked"/>Only this time<br>
-            <input type="radio" id="frequency" name="frequency" value="f2" />Weekly<br>
-            <input type="radio" id="frequency" name="frequency" value="f3" />Montly<br>
-            <input type="radio" id="frequency" name="frequency" value="f4" />Year<br>
+            <input type="radio"name="frequency" value="Only this time" checked="checked" onchange="displayRadioValue('frequency')" />Only this time<br>
+            <input type="radio"name="frequency" value="Weekly"  onchange="displayRadioValue('frequency')" />Weekly<br>
+            <input type="radio" name="frequency" value="Montly"  onchange="displayRadioValue('frequency')" />Montly<br>
+            <input type="radio"  name="frequency" value="Year"  onchange="displayRadioValue('frequency')" />Year<br>
           </div>
         </fieldset>
         </p>
@@ -74,56 +74,56 @@
             <legend> From 1-10, how is it essential:</legend>
           <div class="checkbox-container">
             <label for ="cb1">1</label>
-            <input class="cb_Imp" type="radio" name="selNumber" id="cb1" value="1">
+            <input class="cb_Imp" type="radio" name="selNumber" id="cb1" value="1" onchange="displayRadioValue2('selNumber')" >
             <div class="cb_custom"></div>
           </div>
   
           <div class="checkbox-container">
             <label for ="cb2">2</label>
-            <input class="cb_Imp" type="radio" name="selNumber" id="cb2" value="2">
+            <input class="cb_Imp" type="radio" name="selNumber" id="cb2" value="2" onchange="displayRadioValue2('selNumber')" >
             <div class="cb_custom"></div>         
          </div>
          
          <div class="checkbox-container">
           <label for ="cb3">3</label>
-          <input class="cb_Imp" type="radio" name="selNumber" id="cb3" value="3">
+          <input class="cb_Imp" type="radio" name="selNumber" id="cb3" value="3" onchange="displayRadioValue2('selNumber')" >
           <div class="cb_custom"></div>         
        </div>
   
        <div class="checkbox-container">
         <label for ="cb4">4</label>
-        <input class="cb_Imp" type="radio" name="selNumber" id="cb4" value="4">
+        <input class="cb_Imp" type="radio" name="selNumber" id="cb4" value="4" onchange="displayRadioValue2('selNumber')" >
         <div class="cb_custom"></div>         
         </div>
   
         <div class="checkbox-container">
           <label for ="cb5">5</label>
-          <input class="cb_Imp" type="radio" name="selNumber" id="cb5" value="5">
+          <input class="cb_Imp" type="radio" name="selNumber" id="cb5" value="5" onchange="displayRadioValue2('selNumber')" >
           <div class="cb_custom"></div>         
       </div>
         <div class="checkbox-container">
           <label for ="cb6">6</label>
-          <input class="cb_Imp" type="radio" name="selNumber" id="cb6" value="6">
+          <input class="cb_Imp" type="radio" name="selNumber" id="cb6" value="6" onchange="displayRadioValue2('selNumber')" >
           <div class="cb_custom"></div>         
         </div>
         <div class="checkbox-container">
           <label for ="cb7">7</label>
-          <input class="cb_Imp" type="radio" name="selNumber" id="cb7" value="7">
+          <input class="cb_Imp" type="radio" name="selNumber" id="cb7" value="7" onchange="displayRadioValue2('selNumber')" >
           <div class="cb_custom"></div>         
         </div>
         <div class="checkbox-container">
           <label for ="cb8">8</label>
-          <input class="cb_Imp" type="radio" name="selNumber" id="cb8" value="8">
+          <input class="cb_Imp" type="radio" name="selNumber" id="cb8" value="8" onchange="displayRadioValue2('selNumber')" >
           <div class="cb_custom"></div>         
         </div>
         <div class="checkbox-container">
           <label for ="cb9">9</label>
-          <input class="cb_Imp" type="radio" name="selNumber" id="cb9" value="9">
+          <input class="cb_Imp" type="radio" name="selNumber" id="cb9" value="9" onchange="displayRadioValue2('selNumber')" >
           <div class="cb_custom"></div>         
         </div>
         <div class="checkbox-container">
           <label for ="cb10">10</label>
-          <input class="cb_Imp" type="radio" name="selNumber" id="cb10" value="10">
+          <input class="cb_Imp" type="radio" name="selNumber" id="cb10" value="10" onchange="displayRadioValue2('selNumber')" >
           <div class="cb_custom"></div>         
         </div>
         </fieldset>
