@@ -1,62 +1,67 @@
 //last update 24/08/2023 - 9pm
 
 // Placeholder values for testing
-let tableArray = [
-  {
-    expenseName: "New shoes",
-    category: "Personal Spending",
-    frequency: "Only once",
-    expValue: 60.0,
-    essential: 2,
-    savingDesc: "No",
-    savingValue: 0,
-  },
-  {
-    expenseName: "Netflix",
-    category: "Recreation & Entertainment",
-    frequency: "Montly",
-    expValue: 15.99,
-    essential: 3,
-    savingDesc: "chaging Subscription type",
-    savingValue: 5.99,
-  },
-  {
-    expenseName: "Rent",
-    category: "Housing",
-    frequency: "Montly",
-    expValue: 850.0,
-    essential: 5,
-    savingDesc: "No",
-    savingValue: 0,
-  },
-  {
-    expenseName: "grosseries",
-    category: "Food",
-    frequency: "Weekly",
-    expValue: 150,
-    essential: 5,
-    savingDesc: "No",
-    savingValue: 0,
-  },
-  {
-    expenseName: "jacket",
-    category: "Personal Spending",
-    frequency: "Weekly",
-    expValue: 150,
-    essential: 5,
-    savingDesc: "No",
-    savingValue: 0,
-  },
-  {
-    expenseName: "eletricity",
-    category: "Housing",
-    frequency: "Monthly",
-    expValue: 175,
-    essential: 10,
-    savingDesc: "using during night",
-    savingValue: 30,
-  },
-];
+let tableArray = [];
+
+//This function should run first to pull the necessary data from the database
+(async function initPullData() {
+  const initialResponse = await fetch('http://localhost:3000/get-number-of-expenses');
+  const initialData = await initialResponse.json();
+  const numberOfExpenses = initialData.count;
+  console.log("Number of Expenses:", numberOfExpenses);
+  //Use the number of expenses to decide the length of the table
+
+  
+  const expenseResponse = await fetch(`http://localhost:3000/get-profile-data?numberOfExpenses=${numberOfExpenses}`);
+  const expenseData = await expenseResponse.json();
+  const expenses = expenseData.expenses;
+  console.log("Expenses:", expenses);
+  console.log("Expense 1 Name: ", expenses[0]._id);
+
+  for(let i=0; i<numberOfExpenses; i++){
+
+    const expenseObj = {};
+
+    //This is fine, just a string
+    expenseObj.expenseName = expenses[i]._id;
+
+    //This needs to take the category (eg. c8) and convert it
+    //PROBLEM HERE
+    expenseObj.category = 'Housing';
+
+    //Same as above
+    //PROBLEM HERE?
+    if(expenses[i].frequency == 'f1')
+      expenseObj.frequency = 'Only This Time';
+    else if (expenses[i].frequency == 'f2')
+      expenseObj.frequency = 'Weekly';
+    else if (expenses[i].frequency == 'f3')
+      expenseObj.frequency = 'Monthly';
+    else if (expenses[i].frequency == 'f4')
+      expenseObj.frequency = 'Annually';
+    
+    //Convert to decimal
+    expenseObj.expValue = parseFloat(expenses[i].expValue);
+    //Figure out input value
+    //PROBLEM HERE
+    expenseObj.essential = 5;
+    //This is fine
+    expenseObj.savingDesc = expenses[i].savingDesc;
+    //Convert to decimal
+    expenseObj.savingValue = parseFloat(expenses[i].savingValue);
+
+    tableArray.push(expenseObj);
+    
+    //NOT FILLING TABLE?
+
+  }
+
+  
+  console.log(tableArray);
+  
+  fillTable();
+
+})();
 
 //Array of Categories (will be used for function sumByCategory)
 const categoriesList = [
@@ -74,7 +79,7 @@ const categoriesList = [
 // Browser onloaded will run those functions automatically.
 window.onload = function () {
   calcBudget();
-  fillTable();
+  //fillTable();
   sumSavingValue();
   sumByEssential();
   sumByCategory();
@@ -100,18 +105,19 @@ function calcBudget() {
 }
 function sumExpValue() {
   let x = 0;
-  for (i = 0; i < tableLenght; i++) {
+  for (i = 0; i < tableLength; i++) {
     x += tableArray[i].expValue;
   }
   console.log(x);
   return x;
 }
-// Function to fill the table:
-let tableLenght = tableArray.length;
+
 
 function fillTable() {
+  // Function to fill the table:
+  let tableLength = tableArray.length;
   let myTable = document.getElementById("tableExpenses");
-  for (i = 0; i < tableLenght; i++) {
+  for (i = 0; i < tableLength; i++) {
     myTable.innerHTML +=
       "<tr><td>" +
       tableArray[i].expenseName +
@@ -134,7 +140,7 @@ function fillTable() {
 //show  amount could be saved
 function sumSavingValue() {
   let x = 0;
-  for (i = 0; i < tableLenght; i++) {
+  for (i = 0; i < tableLength; i++) {
     x += tableArray[i].savingValue;
   }
   console.log(x);
@@ -150,7 +156,7 @@ function sumByEssential() {
   for (j = 1; j <= 10; j++) {
     let x = 0;
     //console.log("j=" + j);
-    for (i = 0; i < tableLenght; i++) {
+    for (i = 0; i < tableLength; i++) {
       let essentialGrade = tableArray[i].essential;
       //console.log("essential =" + essentialGrade);
       //console.log("i= " + i);
@@ -180,7 +186,7 @@ function sumByCategory() {
     let x = 0;
     //console.log("j is " + y);
 
-    for (i = 0; i < tableLenght; i++) {
+    for (i = 0; i < tableLength; i++) {
       let currentCategory = tableArray[i].category;
       //console.log("i = " + currentCategory);
 
@@ -198,28 +204,3 @@ function sumByCategory() {
   }
 }
 
-//This function will run first to pull the necessary data from the database
-(async function initPullData() {
-  const initialResponse = await fetch('http://localhost:3000/get-number-of-expenses');
-  const initialData = await initialResponse.json();
-  const numberOfExpenses = initialData.count;
-  console.log("Number of Expenses:", numberOfExpenses);
-  //Use the number of expenses to decide the length of the table
-
-  
-  const expenseResponse = await fetch(`http://localhost:3000/get-profile-data?numberOfExpenses=${numberOfExpenses}`);
-  const expenseData = await expenseResponse.json();
-  const expenses = expenseData.expenses;
-  console.log("Expenses:", expenses);
-  console.log("Expense 1 Name: ", expenses[0]._id);
-
-  
-
-  // Populate tableArray with the retrieved expenses
-  //tableArray = expenses;
-
-  
-  
-  
-  
-})();

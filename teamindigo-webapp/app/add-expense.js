@@ -3,6 +3,7 @@ const expenseName = document.getElementById('expensiveName');
 const category = document.getElementById('category');
 const frequency = document.getElementById('frequency');
 const expValue = document.getElementById('expValue');
+//missing here
 const savingDesc = document.getElementById('savingDesc');
 const savingValue = document.getElementById('savingValue');
 //Need to somehow get the username and pass it into the payload to be used to select the correct collection
@@ -13,6 +14,7 @@ async function createExpenseRequest() {
         category: document.getElementById('category').value,
         frequency: document.getElementById('frequency').value, 
         expValue: document.getElementById('expValue').value,
+        //missing here
         savingDesc: document.getElementById('savingDesc').value,
         savingValue: document.getElementById('savingValue').value
     };
@@ -31,6 +33,7 @@ async function createExpenseRequest() {
     document.getElementById('category').textContent = jsonResponse.category;
     document.getElementById('frequency').textContent = jsonResponse.frequency;
     document.getElementById('expValue').textContent = jsonResponse.expValue;
+    //missing here
     document.getElementById('savingDesc').textContent = jsonResponse.savingDesc;
     document.getElementById('savingValue').textContent = jsonResponse.savingValue;
 }
@@ -42,6 +45,7 @@ function createExpense() {
     document.getElementById('category').value = document.getElementById('category').textContent;
     document.getElementById('frequency').value = document.getElementById('frequency').textContent;
     document.getElementById('expValue').value = document.getElementById('expValue').textContent;
+    //missing here
     document.getElementById('savingDesc').value = document.getElementById('savingDesc').textContent;
     document.getElementById('savingValue').value = document.getElementById('savingValue').textContent;
 }

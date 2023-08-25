@@ -138,6 +138,7 @@ app.post('/add-expense', function (req, res) {
       category: userPayload.category,
       frequency: userPayload.frequency,
       expValue: userPayload.expValue,
+      //missing here
       savingDesc: userPayload.savingDesc,
       savingValue: userPayload.savingValue
     };
