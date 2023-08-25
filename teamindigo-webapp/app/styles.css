@@ -5,7 +5,10 @@
 }
 
 body {
-  background-color: hsl(360, 88%, 72%);
+  /* background-color: hsl(360, 88%, 72%); */
+  background-color: #f15400;
+  background-image: linear-gradient(62deg, #f15400 0%, #F7CE68 100%);
+
   /* background: rgb(209, 9, 213);
   background: linear-gradient(90deg, rgba(209, 9, 213, 1) 0%, rgba(75, 9, 151, 1) 40%, rgba(9, 9, 121, 1) 64%, rgba(0, 212, 255, 1) 86%); */
   
@@ -32,7 +35,6 @@ form {
   background-color: white;
   padding: 2rem;
   border-radius: 1rem;
-  box-shadow: rgb(204, 102, 114) 0px 6px;
   text-align: left !important;
 }
 
@@ -62,49 +64,7 @@ span {
   color: #dc3545;
 }
 
-.input-box {
-  border-radius: 0.25rem;
-  border: 1px solid #ced4da;
-  line-height: 1.5;
-  color: #495057;
-  width: 98.5%;
-  /* margin-top: 7px 10px 5px auto; */
-  padding: 7px;
-  font-size: 1rem;
-  /* display: block; */
-}
 
-#submitBtn {
-  /* display: inline-block; */
-  text-align: center;
-  vertical-align: middle;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-  background-color: transparent;
-  border: 1px solid transparent;
-  padding: 0.375rem 0.75rem;
-  font-size: 1rem;
-  line-height: 1.5;
-  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
-    border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-  margin-top: 1rem;
-  color: rgb(255, 255, 255);
-  width: 100%;
-  background-color: rgb(56, 204, 137);
-  font-weight: 500;
-  box-shadow: rgb(54, 186, 126) 0px 4px;
-  border-color: rgb(56, 204, 137);
-
-  border-radius: calc(0.5em - 1px);
-}
-
-#submitBtn:hover {
-  background-color: hsl(154, 65%, 68%);
-  border-color: hsl(154, 65%, 68%);
-  cursor: pointer;
-}
 
 /* Expense Form CSS*/
 /*  Essentail -CSS to create horizontal "Checkbox" - Start CSS*/
@@ -206,12 +166,22 @@ td {
 
 
 /* login page styling */
+
+.login-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
 #login-container {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-height: 100vh;
+  height: 800px;
+  width: 1100px;
+  /* min-height: 100vh; */
 
 }
 
@@ -230,6 +200,7 @@ td {
   background-color: #fff;
   justify-content: center;
   align-items: center;
+  border-radius: 25px 0 0 25px;
 }
 
 #column-2 {
@@ -240,6 +211,7 @@ td {
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center top;
+  border-radius: 0 25px 25px 0;
 
 }
 
@@ -272,16 +244,27 @@ td {
 }
 
 #input-username,
-#input-password {
+#input-password,
+.input-box {
   width: 100%;
-  padding: 0.4em 0.4em 0.4em 1em;
+  padding: 0.5em 0.5em 0.5em 1em;
   border: 1px solid orangered;
   border-radius: 8px;
   box-sizing: border-box;
-
 }
 
-#login-button {
+/* .input-box {
+  border-radius: 0.25rem;
+  border: 1px solid #ced4da;
+  line-height: 1.5;
+  color: #495057;
+  width: 98.5%;
+  padding: 7px;
+  font-size: 1rem;
+} */
+
+#login-button,
+#submitBtn {
   width: 100%;
   padding: 0.7em 0.4em;
   border: none;
@@ -294,7 +277,7 @@ td {
   cursor: pointer;
 }
 
-#login-button:hover {
+#login-button:hover, #submitBtn:hover {
   background-color: rgb(201, 56, 3);
 }
 
@@ -305,3 +288,27 @@ td {
 #create-account-button {
   font-size: 14px;
 }
+
+@media (max-width: 767px) {
+  #column-1 {
+    border-radius: 20px;
+    margin: 0 25px;
+  }
+}
+/* login page styling end */
+
+/* create account page styling */
+
+.form-wrapper {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  min-height: 100vh;
+}
+
+.create-acc-title {
+  color: orangered;
+  margin-top: 0;
+  line-height: 1;
+}
+
