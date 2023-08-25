@@ -27,7 +27,25 @@ let tableArray = [];
 
     //This needs to take the category (eg. c8) and convert it
     //PROBLEM HERE
-    expenseObj.category = 'Housing';
+    if(expenses[i].category == 'c1')
+      expenseObj.category = 'Housing';
+    else if (expenses[i].category == 'c2')
+      expenseObj.category = 'Transportation';
+    else if (expenses[i].category == 'c3')
+      expenseObj.category = 'Food';
+    else if (expenses[i].category == 'c4')
+      expenseObj.category = 'Medical & Healthcare';
+    else if (expenses[i].category == 'c5')
+      expenseObj.category = 'Debt Payments';
+    else if (expenses[i].category == 'c6')
+      expenseObj.category = 'Saving & Investing';
+    else if (expenses[i].category == 'c7')
+      expenseObj.category = 'Personal Spending';
+      else if (expenses[i].category == 'c8')
+      expenseObj.category = 'Recreation & Entertainment';
+    else if (expenses[i].category == 'c9')
+      expenseObj.category = 'Other';
+
 
     //Same as above
     //PROBLEM HERE?
