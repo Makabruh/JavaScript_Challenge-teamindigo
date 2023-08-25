@@ -5,19 +5,8 @@ const frequency = document.getElementById("frequency");
 const expValue = document.getElementById("expValue");
 
 //?
-const selectedEssentialValue = document.querySelector('input[name="selNumber"]:checked').value;
-/*
-const selectedEssentialElement = document.querySelector('input[name="selNumber"]:checked');
-if (selectedEssentialElement) {
-  const selectedEssentialValue = selectedEssentialElement.value;
-  console.log("checkbox: " + selectedEssentialValue);
-} else {
-  console.log("No checkbox selected");
-}
-console.log("checkbox: " + selectedEssentialValue);
-*/
+//const selectedEssentialValue = document.querySelector('input[name="selNumber"]:checked').value;
 
-//missing here
 const savingDesc = document.getElementById("savingDesc");
 const savingValue = document.getElementById("savingValue");
 //Need to somehow get the username and pass it into the payload to be used to select the correct collection
@@ -26,7 +15,8 @@ async function createExpenseRequest() {
     const payload = {
         expenseName: document.getElementById('expensiveName').value,
         category: document.getElementById('category').value,
-        frequency: document.getElementById('frequency').value, 
+        //frequency: document.getElementById('frequency').value, 
+        frequency: frequencyValue,
         expValue: document.getElementById('expValue').value,
         selectedEssentialValue: document.querySelector('input[name="selNumber"]:checked').value,
         savingDesc: document.getElementById('savingDesc').value,
@@ -72,6 +62,7 @@ function createExpense() {
 //Function to get the value of checked Radio Button Frequency
 
 // varible that will be storage the Radio value for Frequency
+
 let frequencyValue = "";
 function displayRadioValue(radioName) {
   let selectedValue = "";
@@ -90,6 +81,8 @@ function displayRadioValue(radioName) {
   frequencyValue = selectedValue;
 }
 
+
+/*
 // varible that will be storage the Radio value for Essential
 let essentialValue = 0;
 
@@ -109,3 +102,4 @@ function displayRadioValue2(radioName) {
   }
   essentialValue = selectedValue;
 }
+*/
