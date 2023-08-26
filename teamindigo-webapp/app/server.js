@@ -6,6 +6,9 @@ let bodyParser = require('body-parser');
 let app = express();
 let globalUsername = ' ';
 
+//FOR DELETE
+const { ObjectId } = require('mongodb');
+
 app.use(bodyParser.urlencoded({
   extended: true
 }));
@@ -232,6 +235,46 @@ app.get('/get-user-name', function (req, res) {
       res.send(response ? response : {});
     });
   });
+});
+
+app.post('/delete-expense', function (req, res) {
+
+  const expenseIdToDelete = req.body._id;
+  console.log(expenseIdToDelete);
+
+  
+  MongoClient.connect(mongoUrlLocal, mongoClientOptions, function (err, client) {
+    if (err) {
+      res.status(500).send({ error: 'An error occurred while connecting to the database.' });
+      return;
+    }
+
+    const db = client.db(databaseName);
+    const collection = db.collection(globalUsername);
+
+    
+
+    // Construct the query to find the document by _id
+    const query = { _id: expenseIdToDelete };
+
+    
+    collection.deleteOne(query, function (err, result) {
+      client.close();
+
+      if (err) {
+        res.status(500).send({ error: 'An error occurred while deleting the document.' });
+        return;
+      }
+
+      if (result.deletedCount === 1) {
+        res.send({ message: 'Expense deleted successfully.' });
+      } else {
+        res.status(404).send({ error: 'Expense not found.' });
+      }
+    });
+    
+  });
+  
 });
 
 app.listen(3000, function () {

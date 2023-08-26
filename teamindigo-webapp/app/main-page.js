@@ -138,9 +138,51 @@ function fillTable() {
       "</td><td>"
       let deleteExpense = document.createElement("button")
       deleteExpense.innerText="Delete Expense"
+
       "</td></tr>";
   }
 }
+
+//IN TESTING
+
+let buttonForDelete = document.getElementById('deleteButtons');
+
+buttonForDelete.addEventListener('click',function (event) {
+  let tableForButtons = document.getElementById("tableExpenses");
+  let rows = tableForButtons.rows;
+  //i = 2 because we start from the third row to add delete buttons
+  for(let i = 2; i < rows.length; i++){
+    let cols = rows[i].cells;
+    let lastCol = rows[i]['cells'][cols.length - 1];
+
+    let button = document.createElement('button');
+    button.innerText = 'Delete'
+
+    button.setAttribute('onclick', `deleteSpecificExpense(${(i-2)})`);
+    lastCol.appendChild(button);
+  }
+});
+
+
+async function deleteSpecificExpense(numberForExpense) {
+
+  let expenseNameForDelete = tableArray[numberForExpense].expenseName;
+  
+    const payload = {
+      _id: expenseNameForDelete,
+    };
+  
+    const response = await fetch("http://localhost:3000/delete-expense", {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(payload),
+    });
+    const jsonResponse = await response.json();
+}
+
 
 //show  amount could be saved
 function sumSavingValue() {
