@@ -3,13 +3,9 @@ const expenseName = document.getElementById("expensiveName");
 const category = document.getElementById("category");
 const frequency = document.getElementById("frequency");
 const expValue = document.getElementById("expValue");
-
-//?
 //const selectedEssentialValue = document.querySelector('input[name="selNumber"]:checked').value;
-
 const savingDesc = document.getElementById("savingDesc");
 const savingValue = document.getElementById("savingValue");
-//Need to somehow get the username and pass it into the payload to be used to select the correct collection
 
 async function createExpenseRequest() {
     const payload = {
