@@ -135,6 +135,9 @@ function fillTable() {
       tableArray[i].savingDesc +
       "</td><td>" +
       tableArray[i].savingValue +
+      "</td><td>"
+      let deleteExpense = document.createElement("button")
+      deleteExpense.innerText="Delete Expense"
       "</td></tr>";
   }
 }
