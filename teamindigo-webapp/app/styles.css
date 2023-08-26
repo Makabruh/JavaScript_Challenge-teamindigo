@@ -491,8 +491,8 @@ li {
 
 }
 
-/* meet the devs styling */
-.about-page {
+/* meet the devs / about / news styling */
+.meet-devs-page, .about-page {
   min-height: 100vh;
   /* padding-top: 40px; */
   display: flex;
@@ -506,7 +506,7 @@ li {
   font-size: 20px;
 }
 
-.about-section {
+.meet-devs-section {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -523,6 +523,15 @@ li {
   border-radius: 20px;
   height: auto;
   min-height: 600px;
+  margin: 0 50px;
+}
+
+.background-card-about {
+  background-color: #fff;
+  padding: 2em;
+  border-radius: 20px;
+  height: 300;
+  min-height: 300px;
   margin: 0 50px;
 }
 
@@ -548,6 +557,19 @@ li {
   flex-wrap: wrap;
   align-items: flex-start;
   /* Align items to the top */
+}
+
+.news-card {
+  position: relative;
+  width: 220px;
+  height: 200px;
+  border: 1px solid orangered;
+  border-radius: 8px;
+  padding: 16px;
+  margin: 10px;
+  text-align: center;
+  background-color: #FCFCFC;
+
 }
 
 .dev-card {
@@ -598,6 +620,18 @@ li {
   margin-top: 50px;
 }
 
+.news-title {
+  margin-top: 10px;
+}
+
+.news-link  {
+  /* text-decoration: underline; */
+  color:#f15400
+}
+.news-link a:hover  {
+  color:#f15400
+}
+
 a {
   text-decoration: none;
   /* Remove underline */
@@ -614,6 +648,17 @@ a {
   color: orangered;
 }
 
+.about-content-wrapper {
+  margin-top: 30px;
+ display: flex;
+ text-align: left;
+}
+
+.about-content {
+  margin: 0 0 20px 40px ;
+
+}
+
 .about-title {
   margin: 5px;
   color: #f15400;
@@ -623,10 +668,6 @@ a {
   font-size: 25px;
   margin-bottom: 50px;
 }
-
-/* p {
-  margin-bottom: 10px;
-} */
 
 @media (max-width: 1214px) {
   .card-container {
@@ -648,7 +689,6 @@ a {
     height: auto;
     padding: 20px;
     /* min-height: 800px; */
-
   }
 }
 
