@@ -431,13 +431,6 @@ td {
   line-height: 1;
 }
 
-/* PLEASE FIX THIS I DON'T KNOW WHAT I'M DOING */
-
-/* .welcome {
-  position: absolute;
-  left: 150px;
-  top: 150px;
-} */
 
 .welcome {
   margin-bottom: 30px;
