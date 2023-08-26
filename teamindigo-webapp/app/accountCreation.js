@@ -186,25 +186,4 @@ async function createProfileRequest() {
     body: JSON.stringify(payload),
   });
   const jsonResponse = await response.json();
-
-  document.getElementById("firstName").textContent = jsonResponse.firstName;
-  document.getElementById("lastName").textContent = jsonResponse.lastName;
-  document.getElementById("email").textContent = jsonResponse.email;
-  document.getElementById("username").textContent = jsonResponse.username;
-  document.getElementById("password").textContent = jsonResponse.password;
-}
-
-
-//Might not actually need this function
-function createProfile() {
-  document.getElementById("firstName").value =
-    document.getElementById("firstName").textContent;
-  document.getElementById("lastName").value =
-    document.getElementById("lastName").textContent;
-  document.getElementById("email").value =
-    document.getElementById("email").textContent;
-  document.getElementById("username").value =
-    document.getElementById("username").textContent;
-  document.getElementById("password").value =
-    document.getElementById("password").textContent;
 }
