@@ -234,6 +234,39 @@ app.get('/get-user-name', function (req, res) {
   });
 });
 
+app.post('/delete-expense', function (req, res) {
+
+  const expenseIdToDelete = req.body._id;
+  
+  MongoClient.connect(mongoUrlLocal, mongoClientOptions, function (err, client) {
+    if (err) {
+      res.status(500).send({ error: 'An error occurred while connecting to the database.' });
+      return;
+    }
+
+    const db = client.db(databaseName);
+    const collection = db.collection(globalUsername);
+
+    // Construct the query to find the document by _id
+    const query = { _id: new ObjectId(expenseIdToDelete) };
+
+    collection.deleteOne(query, function (err, result) {
+      client.close();
+
+      if (err) {
+        res.status(500).send({ error: 'An error occurred while deleting the document.' });
+        return;
+      }
+
+      if (result.deletedCount === 1) {
+        res.send({ message: 'Expense deleted successfully.' });
+      } else {
+        res.status(404).send({ error: 'Expense not found.' });
+      }
+    });
+  });
+});
+
 app.listen(3000, function () {
   console.log("app listening on port 3000!");
 });

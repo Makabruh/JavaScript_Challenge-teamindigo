@@ -143,7 +143,7 @@ function fillTable() {
   }
 }
 
-//TESTING
+//IN TESTING
 
 let buttonForDelete = document.getElementById('deleteButtons');
 
@@ -158,27 +158,30 @@ buttonForDelete.addEventListener('click',function (event) {
     let button = document.createElement('button');
     button.innerText = 'Delete'
 
-    button.setAttribute('onclick', 'tellName(i)');
+    button.setAttribute('onclick', `deleteSpecificExpense(${(i-2)})`);
     lastCol.appendChild(button);
   }
 });
 
 function tellName(numberForExpense){
 
-  let expenseNameForDelete = numberForExpense;
+  let expenseNameForDelete = tableArray[numberForExpense].expenseName;
+
 
   console.log(expenseNameForDelete)
 
 }
 
-/*
-async function deleteSpecificExpense() {
+
+async function deleteSpecificExpense(numberForExpense) {
+
+  let expenseNameForDelete = tableArray[numberForExpense].expenseName;
   
     const payload = {
-      _id: document.getElementById("firstName").value,
+      _id: expenseNameForDelete,
     };
   
-    const response = await fetch("http://localhost:3000/create-profile", {
+    const response = await fetch("http://localhost:3000/delete-expense", {
       method: "POST",
       headers: {
         Accept: "application/json",
@@ -187,13 +190,8 @@ async function deleteSpecificExpense() {
       body: JSON.stringify(payload),
     });
     const jsonResponse = await response.json();
-  }
-
-
-
-
 }
-*/
+
 
 //show  amount could be saved
 function sumSavingValue() {
