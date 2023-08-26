@@ -6,6 +6,9 @@ let bodyParser = require('body-parser');
 let app = express();
 let globalUsername = ' ';
 
+//FOR DELETE
+const { ObjectId } = require('mongodb');
+
 app.use(bodyParser.urlencoded({
   extended: true
 }));
@@ -237,6 +240,8 @@ app.get('/get-user-name', function (req, res) {
 app.post('/delete-expense', function (req, res) {
 
   const expenseIdToDelete = req.body._id;
+  console.log(expenseIdToDelete);
+
   
   MongoClient.connect(mongoUrlLocal, mongoClientOptions, function (err, client) {
     if (err) {
@@ -247,9 +252,12 @@ app.post('/delete-expense', function (req, res) {
     const db = client.db(databaseName);
     const collection = db.collection(globalUsername);
 
-    // Construct the query to find the document by _id
-    const query = { _id: new ObjectId(expenseIdToDelete) };
+    
 
+    // Construct the query to find the document by _id
+    const query = { _id: expenseIdToDelete };
+
+    
     collection.deleteOne(query, function (err, result) {
       client.close();
 
@@ -264,7 +272,9 @@ app.post('/delete-expense', function (req, res) {
         res.status(404).send({ error: 'Expense not found.' });
       }
     });
+    
   });
+  
 });
 
 app.listen(3000, function () {

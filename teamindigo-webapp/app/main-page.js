@@ -163,15 +163,6 @@ buttonForDelete.addEventListener('click',function (event) {
   }
 });
 
-function tellName(numberForExpense){
-
-  let expenseNameForDelete = tableArray[numberForExpense].expenseName;
-
-
-  console.log(expenseNameForDelete)
-
-}
-
 
 async function deleteSpecificExpense(numberForExpense) {
 
