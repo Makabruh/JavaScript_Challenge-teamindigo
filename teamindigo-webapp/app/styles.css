@@ -7,13 +7,8 @@
 }
 
 body {
-  /* background-color: hsl(360, 88%, 72%); */
   background-color: #f15400;
   background-image: linear-gradient(62deg, #f15400 0%, #F7CE68 100%);
-
-  /* background: rgb(209, 9, 213);
-  background: linear-gradient(90deg, rgba(209, 9, 213, 1) 0%, rgba(75, 9, 151, 1) 40%, rgba(9, 9, 121, 1) 64%, rgba(0, 212, 255, 1) 86%); */
-  
   text-align: center;
   padding: 0;
   margin: 0;
@@ -124,7 +119,7 @@ legend {
   border-radius: 0.25em;
 }
 
-.checkbox-container .cb_Imp:hover +.cb_custom {
+.checkbox-container .cb_Imp:hover+.cb_custom {
   background-color: rgb(135, 220, 245);
 }
 
@@ -146,6 +141,7 @@ legend {
   min-height: 100vh;
 
 }
+
 .mainPage-title {
   /* background-color: #b3d7f3; */
   width: auto;
@@ -198,7 +194,8 @@ td {
   margin-bottom: 50px;
 }
 
-#addExpense, #submitForm {
+#addExpense,
+#submitForm {
   border: 2px solid orangered;
   border-radius: 5px;
   padding: 1em;
@@ -208,7 +205,8 @@ td {
   cursor: pointer;
 }
 
-#addExpense:hover, #submitForm:hover {
+#addExpense:hover,
+#submitForm:hover {
   background-color: orangered;
   color: white;
 
@@ -222,7 +220,8 @@ td {
 
 #section2Info {
   display: flex;
-  flex-wrap: wrap; /* Allow flex items to wrap to the next line */
+  flex-wrap: wrap;
+  /* Allow flex items to wrap to the next line */
   justify-content: center;
   width: 100%;
   /* justify-content: center;
@@ -396,12 +395,13 @@ td {
   cursor: pointer;
 }
 
-#login-button:hover, #submitBtn:hover {
+#login-button:hover,
+#submitBtn:hover {
   background-color: rgb(201, 56, 3);
 }
 
 #account-title {
-  margin-bottom: 0 ;
+  margin-bottom: 0;
 }
 
 #create-account-button {
@@ -414,6 +414,7 @@ td {
     margin: 0 25px;
   }
 }
+
 /* login page styling end */
 
 /* create account page styling */
@@ -437,8 +438,8 @@ td {
 }
 
 .logo-navbar {
-    width: 80px;
-    height: 80px;
+  width: 80px;
+  height: 80px;
 }
 
 
@@ -449,10 +450,10 @@ ul {
 }
 
 li {
-  display:inline;
-  padding:30px;
-  color:white;
-  font-size:20px;
+  display: inline;
+  padding: 30px;
+  color: white;
+  font-size: 20px;
 }
 
 .navBar {
@@ -499,15 +500,21 @@ li {
   align-items: center;
 
 }
+
+.about-app {
+  margin: 0 40px;
+  font-size: 20px;
+}
+
 .about-section {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   text-align: center;
-  
+
   /* min-height: 100vh; */
-  
+
 }
 
 .background-card {
@@ -516,7 +523,7 @@ li {
   border-radius: 20px;
   height: auto;
   min-height: 600px;
-  margin: 0 20px;
+  margin: 0 50px;
 }
 
 .profile-pic {
@@ -613,6 +620,7 @@ a {
 }
 
 .about-subtitle {
+  font-size: 25px;
   margin-bottom: 50px;
 }
 
@@ -622,19 +630,20 @@ a {
 
 @media (max-width: 1214px) {
   .card-container {
-      align-items: center;
-      /* row-gap: 50px; */
+    align-items: center;
+    /* row-gap: 50px; */
   }
 
   .dev-card {
-      margin-top: 60px;
-      /* Increase the top margin to create space for the profile picture */
+    margin-top: 60px;
+    /* Increase the top margin to create space for the profile picture */
   }
 
   .profile-pic {
-      top: -50px;
-      /* Adjust the top position to prevent overlap on smaller screens */
+    top: -50px;
+    /* Adjust the top position to prevent overlap on smaller screens */
   }
+
   .background-card {
     height: auto;
     padding: 20px;
@@ -643,6 +652,7 @@ a {
   }
 }
 
+/* footer styling */
 .attribute {
   color: white;
 }
@@ -652,6 +662,7 @@ a {
   text-decoration: underline;
   cursor: pointer;
 }
+
 .attribute a:hover {
   color: lightblue;
 }
