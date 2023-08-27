@@ -706,3 +706,7 @@ a {
 .attribute a:hover {
   color: lightblue;
 }
+
+.helpLink  {
+  color:#f15400
+}
