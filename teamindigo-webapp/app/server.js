@@ -20,11 +20,11 @@ app.get('/', function (req, res) {
   res.sendFile(path.join(__dirname, "index.html"));
 });
 
-// use when starting application locally
+// use when starting application locally - this needs to be commented for building the image
 let mongoUrlLocal = "mongodb://admin:password@localhost:27017";
 
-// use when starting application as docker container
-let mongoUrlDocker = "mongodb://admin:password@mongodb";
+// use when starting application as docker container - this needs to be uncommented for building the image
+//let mongoUrlLocal = "mongodb://admin:password@mongodb";
 
 // pass these options to mongo client connect request to avoid DeprecationWarning for current Server Discovery and Monitoring engine
 let mongoClientOptions = { useNewUrlParser: true, useUnifiedTopology: true };
