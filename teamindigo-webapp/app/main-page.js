@@ -83,6 +83,7 @@ function prepPage() {
   sumSavingValue();
   sumByEssential();
   sumByCategory();
+  helpByCategory();
 };
 
 //function to Add Expense Buton
@@ -143,7 +144,6 @@ function fillTable() {
   }
 }
 
-//IN TESTING
 
 let buttonForDelete = document.getElementById('deleteButtons');
 
@@ -216,11 +216,11 @@ function sumByEssential() {
     }
     if (x > 0) {
       resultByGrade.innerHTML +=
-        "Essential value " +
+        "For Essential Value " +
         "<b>" +
         j +
         "</b>" +
-        ", total expense is: £" +
+        ", the total expense is: £" +
         x +
         "<br>";
     }
@@ -249,5 +249,73 @@ function sumByCategory() {
         "The total expense for " + "<b>" + y + "</b>" + " is: £" + x + "<br>";
     }
   }
+}
+
+selectedCategoriesArray=[];
+function helpByCategory(){
+  for (let i in categoriesList){
+    //Go through each category available
+    let selectedCategory = categoriesList[i];
+
+    for (j = 0; j < tableLength; j++) {
+      //If the current category is on the list then add it to the list
+      let currentCategory = tableArray[j].category;
+      //console.log("i = " + currentCategory);
+      if(selectedCategory == currentCategory){
+        selectedCategoriesArray.push(selectedCategory);
+      }
+    }
+
+
+  }
+
+  console.log(selectedCategoriesArray);
+  //If the array contains a category, supply the help links
+  if(selectedCategoriesArray.includes("Debt Payments")){
+    resultHelp.innerHTML +=
+      "For help with " + "<b>" + "Debt Payments" + "</b>" + ", please see our" + "<b>" + " Help with Debts " + "</b>" + "page" +
+      "<br>"
+  }
+  if(selectedCategoriesArray.includes("Housing")){
+    resultHelp.innerHTML +=
+      "For help with " + "<b>" + "Housing" + "</b>" + ", please see our" + "<b>" + " Help with Housing " + "</b>" + "page" +
+      "<br>"
+  }
+  if(selectedCategoriesArray.includes("Transportation")){
+    resultHelp.innerHTML +=
+      "For help with " + "<b>" + "Transportation" + "</b>" + ", please see our" + "<b>" + " Help with Transport " + "</b>" + "page" +
+      "<br>"
+  }
+  if(selectedCategoriesArray.includes("Food")){
+    resultHelp.innerHTML +=
+      "For help with " + "<b>" + "Food Costs" + "</b>" + ", please see our" + "<b>" + " Help with Food & Living " + "</b>" + "page" +
+      "<br>"
+  }
+  if(selectedCategoriesArray.includes("Medical & Healthcare")){
+    resultHelp.innerHTML +=
+      "For help with " + "<b>" + "Medical & Healthcare Bills" + "</b>" + ", please see our" + "<b>" + " Help with Health " + "</b>" + "page" +
+      "<br>"
+  }
+  if(selectedCategoriesArray.includes("Saving, Investing")){
+    resultHelp.innerHTML +=
+      "For help with " + "<b>" + "Ways to Save & Invest" + "</b>" + ", please see our" + "<b>" + " Help with Saving or Investing " + "</b>" + "page" +
+      "<br>"
+  }
+  if(selectedCategoriesArray.includes("Personal Spending")){
+    resultHelp.innerHTML +=
+      "For help with " + "<b>" + "Personal Spending Habits" + "</b>" + ", please see our" + "<b>" + " Help with Personal Spending " + "</b>" + "page" +
+      "<br>"
+  }
+  if(selectedCategoriesArray.includes("Recreation & Entertainment")){
+    resultHelp.innerHTML +=
+      "For help with " + "<b>" + "Recreation & Entertainment Costs" + "</b>" + ", please see our" + "<b>" + " Help with Recreation & Entertainment " + "</b>" + "page" +
+      "<br>"
+  }
+  if(selectedCategoriesArray.includes("Other")){
+    resultHelp.innerHTML +=
+      "For help with " + "<b>" + "Other Costs" + "</b>" + ", please see our" + "<b>" + " Other Help " + "</b>" + "page" +
+      "<br>"
+  }
+
 }
 
