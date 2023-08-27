@@ -29,6 +29,7 @@ async function createExpenseRequest() {
     });
     const jsonResponse = await response.json();
 
+    alert("Expense added! Please return to the main page")
     
 }
 
