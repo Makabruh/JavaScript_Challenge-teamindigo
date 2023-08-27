@@ -109,7 +109,20 @@ function calcBudget() {
 function sumExpValue() {
   let x = 0;
   for (i = 0; i < tableLength; i++) {
-    x += tableArray[i].expValue;
+
+    if(tableArray[i].frequency == "Monthly"){
+      x += tableArray[i].expValue;
+    }
+    else if (tableArray[i].frequency == "Year"){
+      x += (tableArray[i].expValue / 12);
+    }
+    else if (tableArray[i].frequency == "Weekly"){
+      x += (tableArray[i].expValue * 4);
+    }
+    else {
+      //This will be a one-off payment
+      x += tableArray[i].expValue;
+    }
   }
   console.log(x);
   return x;
@@ -188,12 +201,26 @@ async function deleteSpecificExpense(numberForExpense) {
 function sumSavingValue() {
   let x = 0;
   for (i = 0; i < tableLength; i++) {
-    x += tableArray[i].savingValue;
+
+    if(tableArray[i].frequency == "Monthly"){
+      x += tableArray[i].savingValue;
+    }
+    else if (tableArray[i].frequency == "Year"){
+      x += (tableArray[i].savingValue / 12);
+    }
+    else if (tableArray[i].frequency == "Weekly"){
+      x += (tableArray[i].savingValue * 4);
+    }
+    else {
+      //This will be a one-off payment
+      x += tableArray[i].savingValue;
+    }
   }
+  
   console.log(x);
   let savingResult = document.getElementById("resultSaving");
 
-  savingResult.innerHTML = "£" + x;
+  savingResult.innerHTML = "£" + x.toFixed(2);
 }
 
 // show the values spent by essential
@@ -207,8 +234,21 @@ function sumByEssential() {
       let essentialGrade = tableArray[i].essential;
       //console.log("essential =" + essentialGrade);
       //console.log("i= " + i);
-      let essentialExp = tableArray[i].expValue;
+      if(tableArray[i].frequency == "Monthly"){
+        essentialExp = tableArray[i].expValue;
+      }
+      else if (tableArray[i].frequency == "Year"){
+        essentialExp = (tableArray[i].expValue / 12)
+      }
+      else if (tableArray[i].frequency == "Weekly"){
+        essentialExp = (tableArray[i].expValue * 4);
+      }
+      else {
+        //This will be a one-off payment
+        essentialExp = tableArray[i].expValue;
+      }
       //console.log(essentialExp);
+
       if (essentialGrade == j) {
         x += essentialExp;
         //console.log("x=" + x);
@@ -221,7 +261,7 @@ function sumByEssential() {
         j +
         "</b>" +
         ", the total expense is: £" +
-        x +
+        x.toFixed(2) +
         "<br>";
     }
   }
@@ -237,7 +277,19 @@ function sumByCategory() {
       let currentCategory = tableArray[i].category;
       //console.log("i = " + currentCategory);
 
-      let categoryValue = tableArray[i].expValue;
+      if(tableArray[i].frequency == "Monthly"){
+        categoryValue = tableArray[i].expValue;
+      }
+      else if (tableArray[i].frequency == "Year"){
+        categoryValue = (tableArray[i].expValue / 12);
+      }
+      else if (tableArray[i].frequency == "Weekly"){
+        categoryValue = (tableArray[i].expValue * 4);
+      }
+      else {
+        //This will be a one-off payment
+        categoryValue = tableArray[i].expValue;
+      }
 
       if (y == currentCategory) {
         //console.log("match " + y);
@@ -246,7 +298,7 @@ function sumByCategory() {
     }
     if (x > 0) {
       reesultCategory.innerHTML +=
-        "The total expense for " + "<b>" + y + "</b>" + " is: £" + x + "<br>";
+        "The total expense for " + "<b>" + y + "</b>" + " is: £" + x.toFixed(2) + "<br>";
     }
   }
 }
@@ -273,47 +325,47 @@ function helpByCategory(){
   //If the array contains a category, supply the help links
   if(selectedCategoriesArray.includes("Debt Payments")){
     resultHelp.innerHTML +=
-      "For help with " + "<b>" + "Debt Payments" + "</b>" + ", please see our" + "<b>" + "<a href='./help-with-debts.html'> Help with Debts </a>" + "</b>" + "page" +
+      "For help with " + "<b>" + "Debt Payments" + "</b>" + ", please see our" + "<b>" + "<a href='./help-with-debts.html' class=`helpLink`> Help with Debts </a>" + "</b>" + "page" +
       "<br>"
   }
   if(selectedCategoriesArray.includes("Housing")){
     resultHelp.innerHTML +=
-      "For help with " + "<b>" + "Housing" + "</b>" + ", please see our" + "<b>" + "<a href='./help-with-housing.html'> Help with Housing </a>" + "</b>" + "page" +
+      "For help with " + "<b>" + "Housing" + "</b>" + ", please see our" + "<b>" + "<a href='./help-with-housing.html' class=`helpLink`> Help with Housing </a>" + "</b>" + "page" +
       "<br>"
   }
   if(selectedCategoriesArray.includes("Transportation")){
     resultHelp.innerHTML +=
-      "For help with " + "<b>" + "Transportation" + "</b>" + ", please see our" + "<b>" + "<a href='./help-with-transport.html'> Help with Transport </a>" + "</b>" + "page" +
+      "For help with " + "<b>" + "Transportation" + "</b>" + ", please see our" + "<b>" + "<a href='./help-with-transport.html' class=`helpLink`> Help with Transport </a>" + "</b>" + "page" +
       "<br>"
   }
   if(selectedCategoriesArray.includes("Food")){
     resultHelp.innerHTML +=
-      "For help with " + "<b>" + "Food Costs" + "</b>" + ", please see our" + "<b>" + "<a href='./help-with-food.html'> Help with Food & Living </a>" + "</b>" + "page" +
+      "For help with " + "<b>" + "Food Costs" + "</b>" + ", please see our" + "<b>" + "<a href='./help-with-food.html' class=`helpLink`> Help with Food & Living </a>" + "</b>" + "page" +
       "<br>"
   }
   if(selectedCategoriesArray.includes("Medical & Healthcare")){
     resultHelp.innerHTML +=
-      "For help with " + "<b>" + "Medical & Healthcare Bills" + "</b>" + ", please see our" + "<b>" + "<a href='./help-with-health.html'> Help with Health </a>" + "</b>" + "page" +
+      "For help with " + "<b>" + "Medical & Healthcare Bills" + "</b>" + ", please see our" + "<b>" + "<a href='./help-with-health.html' class=`helpLink`> Help with Health </a>" + "</b>" + "page" +
       "<br>"
   }
   if(selectedCategoriesArray.includes("Saving, Investing")){
     resultHelp.innerHTML +=
-      "For help with " + "<b>" + "Ways to Save & Invest" + "</b>" + ", please see our" + "<b>" + "<a href='./help-with-saving.html'> Help with Saving & Investing </a>" + "</b>" + "page" +
+      "For help with " + "<b>" + "Ways to Save & Invest" + "</b>" + ", please see our" + "<b>" + "<a href='./help-with-saving.html' class=`helpLink`> Help with Saving & Investing </a>" + "</b>" + "page" +
       "<br>"
   }
   if(selectedCategoriesArray.includes("Personal Spending")){
     resultHelp.innerHTML +=
-      "For help with " + "<b>" + "Personal Spending Habits" + "</b>" + ", please see our" + "<b>" + "<a href='./help-with-personal-spending.html'> Help with Personal Spending </a>" + "</b>" + "page" +
+      "For help with " + "<b>" + "Personal Spending Habits" + "</b>" + ", please see our" + "<b>" + "<a href='./help-with-personal-spending.html' class=`helpLink`> Help with Personal Spending </a>" + "</b>" + "page" +
       "<br>"
   }
   if(selectedCategoriesArray.includes("Recreation & Entertainment")){
     resultHelp.innerHTML +=
-      "For help with " + "<b>" + "Recreation & Entertainment Costs" + "</b>" + ", please see our" + "<b>" + "<a href='./help-with-entertainment.html'> Help with Recreation & Entertainment </a>" + "</b>" + "page" +
+      "For help with " + "<b>" + "Recreation & Entertainment Costs" + "</b>" + ", please see our" + "<b>" + "<a href='./help-with-entertainment.html' class=`helpLink`> Help with Recreation & Entertainment </a>" + "</b>" + "page" +
       "<br>"
   }
   if(selectedCategoriesArray.includes("Other")){
     resultHelp.innerHTML +=
-      "For help with " + "<b>" + "Other Costs" + "</b>" + ", please see our" + "<b>" + "<a href='./other-help.html'> Other Help </a>" + "</b>" + "page" +
+      "For help with " + "<b>" + "Other Costs" + "</b>" + ", please see our" + "<b>" + "<a href='./other-help.html' class=`helpLink`> Other Help </a>" + "</b>" + "page" +
       "<br>"
   }
 
